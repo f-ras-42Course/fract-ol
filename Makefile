@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/14 13:28:13 by fras          #+#    #+#                  #
-#    Updated: 2023/07/16 15:41:44 by fras          ########   odam.nl          #
+#    Updated: 2023/07/16 19:25:44 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@
 NAME = fractol
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
-INCLUDE = -I include -I $(EXTLIB_DIR)/include
+MLX42_FLAGS = -framework Cocoa - framework OpenGL -framework IOKit -lglfw3
+INCLUDE = -I include -I $(MLX42_DIR)/include/MLX42
 SRC_DIR = src
 OBJ_DIR = obj
 SOURCES = $(shell find $(SRC_DIR) -type f -name "*.c")
@@ -23,9 +24,9 @@ RM = rm -f
 
 # Libraries
 LIB_DIR = lib
-EXTLIB_DIR = $(LIB_DIR)/libs42 $(LIB_DIR)/MLX42
 MLX42 = $(LIB_DIR)/libmlx42.a
-LIBRARIES = $(addprefix $(LIB_DIR)/, libft.a libftprintf.a libftextended.a)
+MLX42_DIR = $(LIB_DIR)/MLX42
+MLX42_BUILD = $(MLX42_DIR)/build
 
 ifdef DEBUG
 CFLAGS += -g
@@ -40,7 +41,7 @@ endif
 
 all: $(NAME)
 
-client: $(LIBRARIES) $(OBJECTS)
+$(NAME): $(MLX42) $(OBJECTS)
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(OBJECTS) $(LIBRARIES)
 	@$(MAKE) message EXECUTABLE=$@
 
@@ -49,9 +50,11 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $^
 
 # Libraries
-$(LIBRARIES): $(EXTLIB_DIR)/$(@F)
-	$(MAKE) -C $(EXTLIB_DIR) $(@F)
-	cp $(EXTLIB_DIR)/$(@F) $@
+$(MLX42):
+	cmake -S $(MLX42_DIR) -B $(MLX42_BUILD)
+	make -C $(MLX42_BUILD) -j4
+	cp $(MLX42_BUILD)/$(@F) $@
+	@echo "\033[92mMLX library available in ./$(MLX42)! :)\033[0m"
 
 # Directories
 directories:
@@ -62,8 +65,8 @@ clean:
 	$(RM) -r obj
 
 fclean: clean
-	$(MAKE) -C $(EXTLIB_DIR) $@
-	$(RM) $(LIBRARIES)
+	$(RM) $(MLX42)
+	$(RM) -rf $(MLX42_BUILD)
 	$(RM) $(NAME)
 
 re: fclean all
