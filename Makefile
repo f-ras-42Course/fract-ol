@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/14 13:28:13 by fras          #+#    #+#                  #
-#    Updated: 2023/07/16 19:39:21 by fras          ########   odam.nl          #
+#    Updated: 2023/07/16 19:45:01 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,11 @@ NAME = fractol
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
 MLX42_FLAGS = -framework Cocoa - framework OpenGL -framework IOKit -lglfw3
-INCLUDE = -I include -I $(MLX42_DIR)/include/MLX42
+INCLUDE = -I include -I $(MLX42_DIR)/include
 SRC_DIR = src
 OBJ_DIR = obj
 SOURCES = $(shell find $(SRC_DIR) -type f -name "*.c")
-OBJECTS = $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(CLIENT_SOURCES:%.c=%.o))
+OBJECTS = $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SOURCES:%.c=%.o))
 RM = rm -f
 
 # Libraries
