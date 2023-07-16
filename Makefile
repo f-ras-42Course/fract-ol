@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/14 13:28:13 by fras          #+#    #+#                  #
-#    Updated: 2023/07/16 19:25:44 by fras          ########   odam.nl          #
+#    Updated: 2023/07/16 19:39:21 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ $(MLX42):
 	cmake -S $(MLX42_DIR) -B $(MLX42_BUILD)
 	make -C $(MLX42_BUILD) -j4
 	cp $(MLX42_BUILD)/$(@F) $@
-	@echo "\033[92mMLX library available in ./$(MLX42)! :)\033[0m"
+	@echo "\033[92mMLX library available in ./$(MLX42)\033[0m"
 
 # Directories
 directories:
