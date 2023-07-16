@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/14 13:28:13 by fras          #+#    #+#                  #
-#    Updated: 2023/07/16 19:45:01 by fras          ########   odam.nl          #
+#    Updated: 2023/07/16 20:21:12 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@
 NAME = fractol
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
-MLX42_FLAGS = -framework Cocoa - framework OpenGL -framework IOKit -lglfw3
+MLX42_FLAGS1 = -lglfw -L "/Users/$USER/.brew/opt/glfw/lib/"
+MLX42_FLAGS2 = -framework Cocoa - framework OpenGL -framework IOKit -lglfw3
 INCLUDE = -I include -I $(MLX42_DIR)/include
 SRC_DIR = src
 OBJ_DIR = obj
@@ -42,7 +43,7 @@ endif
 all: $(NAME)
 
 $(NAME): $(MLX42) $(OBJECTS)
-	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(OBJECTS) $(LIBRARIES)
+	$(CC) $(CFLAGS) $(INCLUDE) $(MLX42_FLAGS1) -o $@ $(OBJECTS) $(MLX42)
 	@$(MAKE) message EXECUTABLE=$@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
