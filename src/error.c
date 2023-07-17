@@ -6,17 +6,19 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:21:53 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/17 16:04:17 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/17 17:39:07 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_utils.h"
 
 void	unexpected_crash(mlx_t *mlx)
 {
 	if (mlx)
 		mlx_terminate(mlx);
-	printf("MLX errno: %d\n",  mlx_errno);
-	perror(mlx_strerror(mlx_errno));
+	#ifndef DEBUG
+		ft_putstr_fd("MLX Crashed. Go into debug mode for more info.\n" \
+			, STDERR_FILENO);
+	#endif
 	return ;
 }

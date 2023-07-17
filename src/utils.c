@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   utils.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/17 17:39:49 by fras          ########   odam.nl         */
+/*   Created: 2023/07/17 17:12:49 by fras          #+#    #+#                 */
+/*   Updated: 2023/07/17 17:20:53 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_utils.h"
 
-int	main(void)
+void	ft_putstr_fd(char *s, int fd)
 {
-	mlx_t		*mlx;
-	mlx_image_t	*background;
+	write(fd, s, ft_strlen(s));
+}
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
 
-	mlx = mlx_init(1440, 900, "MLX Screen!", false);
-	if (!mlx)
-		return (unexpected_crash(mlx), EXIT_FAILURE);
-	background = mlx_new_image(mlx, 1440, 900);
-	if (!background)
-		return (unexpected_crash(mlx), EXIT_FAILURE);
-	mlx_loop(mlx);
-	mlx_terminate(mlx);
-	printf("MLX Success - terminated.\n");
-	return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
