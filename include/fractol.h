@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/17 17:19:53 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/17 18:28:26 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@
 # include <unistd.h>
 # include <stdbool.h>
 
-// typedef struct	s_mlx_general
-// {
-// 	mlx_t		*mlx;
-// 	mlx_image_t	*background;
-// }	t_mlx_general; //- eventually struct not needed.
+# ifndef DEBUG
+#  define DEBUG 0
+# endif
 
 #endif

@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/14 13:28:13 by fras          #+#    #+#                  #
-#    Updated: 2023/07/17 17:34:23 by fras          ########   odam.nl          #
+#    Updated: 2023/07/17 18:11:12 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ MLX42_DIR = $(LIB_DIR)/MLX42
 MLX42_BUILD = $(MLX42_DIR)/build
 
 ifdef DEBUG
-CFLAGS += -g -D DEBUG
+CFLAGS += -g -D DEBUG=-1
 MLX42_DEBUG = -DDEBUG=1
 endif
 
