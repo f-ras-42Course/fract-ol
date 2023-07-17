@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/14 13:28:13 by fras          #+#    #+#                  #
-#    Updated: 2023/07/17 13:20:36 by fras          ########   odam.nl          #
+#    Updated: 2023/07/17 17:23:22 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ MLX42_BUILD = $(MLX42_DIR)/build
 
 ifdef DEBUG
 CFLAGS += -g
+MLX42_DEBUG = -DDEBUG=1
 endif
 
 ifdef FSAN
@@ -51,7 +52,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 # Libraries
 $(MLX42):
-	cmake -S $(MLX42_DIR) -B $(MLX42_BUILD)
+	cmake -S $(MLX42_DIR) -B $(MLX42_BUILD) $(MLX42_DEBUG)
 	make -C $(MLX42_BUILD) -j4
 	cp $(MLX42_BUILD)/$(@F) $@
 	@echo "\033[92mMLX library available in ./$(MLX42)\033[0m"
@@ -73,7 +74,7 @@ re: fclean all
 
 # Debugging
 debug:
-	$(MAKE) DEBUG=1
+	$(MAKE) DEBUG=1 
 
 rebug: fclean debug
 
