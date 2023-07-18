@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/18 15:42:46 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/18 20:12:21 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,12 @@
 # ifndef DEBUG
 #  define DEBUG 0
 # endif
+
+typedef struct s_mlx_data
+{
+	mlx_t		*mlx;
+	mlx_image_t	*image;
+	mlx_image_t *rectangle;	
+}	t_mlx_data;
 
 #endif
