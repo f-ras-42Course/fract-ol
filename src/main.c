@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/17 17:48:25 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/18 12:43:11 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(void)
 	mlx = mlx_init(1440, 900, "MLX Screen!", false);
 	if (!mlx)
 		return (unexpected_crash(mlx), EXIT_FAILURE);
-	background = mlx_new_image(mlx, 0, 0);
+	background = mlx_new_image(mlx, 1440, 900);
 	if (!background)
 		return (unexpected_crash(mlx), EXIT_FAILURE);
 	mlx_loop(mlx);
