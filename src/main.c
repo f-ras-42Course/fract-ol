@@ -6,14 +6,14 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/18 16:17:13 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/18 18:00:33 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	test_draw_crosshair(void	*image_ptr);
-void	load_hooks(mlx_t *mlx, mlx_image_t *image);
+void	load_hooks(mlx_t *mlx);
+void	key_hooks(void	*mlx_ptr);
 
 int	main(void)
 {
@@ -28,44 +28,31 @@ int	main(void)
 		return (unexpected_crash(mlx), EXIT_FAILURE);
 	if (mlx_image_to_window(mlx, image, 0, 0) == -1)
 		return(unexpected_crash(mlx), EXIT_FAILURE);
-	// mlx_put_pixel(image, 720, 450, 0xffffffff);
-	// test_draw_crosshair(image);
-	load_hooks(mlx, image);
+	load_hooks(mlx);
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
-	printf("MLX Success - terminated.\n");
-	return (0);
+	printf("\nMLX Success - terminated.\n");
+	return (EXIT_SUCCESS);
 }
 
-void	test_draw_crosshair(void	*image_ptr)
+void	key_hooks(void	*mlx_ptr)
 {
-	mlx_image_t	*image;
-	static int	i;
-	static bool go_y;
+	mlx_t *mlx;
 
-	image = image_ptr;
-	if(i != 1440 && !go_y)
-	{
-		while ((i + 1) % 10)
-			mlx_put_pixel(image, i++, 450, 0xffffffff);
-		mlx_put_pixel(image, i++, 450, 0xffffffff);
-		printf("put_pixel x %i\n", i);
-	}
-	if (i == 1440)
-	{
-		i = 0;
-		go_y = true;
-	}
-	if(go_y && i != 900)
-	{
-		while ((i + 1) % 10)
-			mlx_put_pixel(image, 720, i++, 0xffffffff);
-		mlx_put_pixel(image, 720, i++, 0xffffffff);
-		printf("put_pixel y %i\n", i);
-	}
+	mlx = mlx_ptr;
+	if(mlx_is_key_down(mlx, MLX_KEY_ESCAPE)\
+		|| mlx_is_key_down(mlx, MLX_KEY_Q))
+		mlx_close_window(mlx);
 }
 
-void	load_hooks(mlx_t *mlx, mlx_image_t *image)
+void	good_bye_X(void *param)
 {
-	mlx_loop_hook(mlx, test_draw_crosshair, image);
+	param = NULL;
+	ft_putstr_fd("You can also close using 'ESC' or 'Q'!\n", STDOUT_FILENO);
+}
+
+void	load_hooks(mlx_t *mlx)
+{
+	mlx_close_hook(mlx, good_bye_X, NULL);
+	mlx_loop_hook(mlx, key_hooks, mlx);
 }
