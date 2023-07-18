@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/18 18:01:28 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/18 18:35:30 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 void	load_hooks(mlx_t *mlx);
 void	key_hooks(void	*mlx_ptr);
 
+mlx_image_t	*draw_rect(mlx_t *mlx, int x, int y, unsigned int color);
+
 int	main(void)
 {
 	mlx_t		*mlx;
 	mlx_image_t	*image;
+	mlx_image_t *rectangle;
 
 	mlx = mlx_init(1440, 900, "Fractality! - yeah", false);
 	if (!mlx)
@@ -28,6 +31,8 @@ int	main(void)
 		return (unexpected_crash(mlx), EXIT_FAILURE);
 	if (mlx_image_to_window(mlx, image, 0, 0) == -1)
 		return(unexpected_crash(mlx), EXIT_FAILURE);
+	rectangle = draw_rect(mlx, 30, 30, 0x6432ffff);
+	mlx_image_to_window(mlx, rectangle, 720, 450);
 	load_hooks(mlx);
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
