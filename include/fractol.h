@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/19 17:05:29 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/19 17:12:17 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 typedef struct s_mlx_data
 {
 	mlx_t		*mlx;
-	mlx_image_t	*image;
-	mlx_image_t *rectangle;	
+	mlx_image_t	*background;
+	mlx_image_t *image;	
 }	t_mlx_data;
 
 mlx_image_t	*draw_rect(mlx_t *mlx, int width, int height, unsigned int color);

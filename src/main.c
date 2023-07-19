@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/19 17:08:01 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/19 17:13:29 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ int	main(void)
 	window.mlx = mlx_init(1440, 900, "Fractality! - yeah", false);
 	if (!window.mlx)
 		return (unexpected_crash(window.mlx), EXIT_FAILURE);
-	window.image = mlx_new_image(window.mlx, 1440, 900);
-	if (!window.image)
+	window.background = mlx_new_image(window.mlx, 1440, 900);
+	if (!window.background)
 		return (unexpected_crash(window.mlx), EXIT_FAILURE);
-	if (mlx_image_to_window(window.mlx, window.image, 0, 0) == -1)
+	if (mlx_image_to_window(window.mlx, window.background, 0, 0) == -1)
 		return(unexpected_crash(window.mlx), EXIT_FAILURE);
-	window.rectangle = draw_rect(window.mlx, 1440, 900, 0x6432ffff);
-	if (!window.rectangle)
+	window.image = draw_rect(window.mlx, 1440, 900, 0x6432ffff);
+	if (!window.image)
 		return(unexpected_crash(window.mlx), EXIT_FAILURE);
-	mlx_image_to_window(window.mlx, window.rectangle, 0, 0);
+	mlx_image_to_window(window.mlx, window.image, 0, 0);
 	load_hooks(&window);
 	mlx_loop(window.mlx);
 	mlx_terminate(window.mlx);
@@ -47,13 +47,13 @@ void	key_hooks(void *param)
 		|| mlx_is_key_down(window->mlx, MLX_KEY_Q))
 		mlx_close_window(window->mlx);
 	if (mlx_is_key_down(window->mlx, MLX_KEY_W))
-		window->rectangle->instances->y -= 5;
+		window->image->instances->y -= 5;
 	if (mlx_is_key_down(window->mlx, MLX_KEY_A))
-		window->rectangle->instances->x -= 5;
+		window->image->instances->x -= 5;
 	if (mlx_is_key_down(window->mlx, MLX_KEY_S))
-		window->rectangle->instances->y += 5;
+		window->image->instances->y += 5;
 	if (mlx_is_key_down(window->mlx, MLX_KEY_D))
-		window->rectangle->instances->x += 5;
+		window->image->instances->x += 5;
 }
 
 void	good_bye_X(void *param)
