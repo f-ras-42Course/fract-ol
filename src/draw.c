@@ -6,13 +6,13 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/19 17:03:39 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/19 17:07:08 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/19 17:39:41 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-mlx_image_t	*draw_rect(mlx_t *mlx, int width, int height, unsigned int color)
+mlx_image_t	*draw_rectangle(mlx_t *mlx, int width, int height, unsigned int color)
 {
 	mlx_image_t	*rectangle;
 	int			x;

@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/19 17:36:25 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/19 17:38:20 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ bool		create_fractal(t_mlx_data *window);
 bool		insert_fractal(t_mlx_data *window);
 bool		init_fractal(t_mlx_data *window);
 
-mlx_image_t	*draw_rect(mlx_t *mlx, int width, int height, unsigned int color);
+mlx_image_t	*draw_rectangle(mlx_t *mlx, int width, int height, unsigned int color);
 
 #endif
