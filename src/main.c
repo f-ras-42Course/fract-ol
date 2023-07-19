@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/19 17:14:39 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/19 17:33:13 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,8 @@ int	main(void)
 	window.mlx = mlx_init(1440, 900, "Fractality! - yeah", false);
 	if (!window.mlx)
 		return (unexpected_crash(window.mlx), EXIT_FAILURE);
-	window.background = mlx_new_image(window.mlx, 1440, 900);
-	if (!window.background)
+	if(!init_fractal(&window))
 		return (unexpected_crash(window.mlx), EXIT_FAILURE);
-	if (mlx_image_to_window(window.mlx, window.background, 0, 0) == -1)
-		return(unexpected_crash(window.mlx), EXIT_FAILURE);
-	window.image = draw_rect(window.mlx, 1440, 900, 0x6432ffff);
-	if (!window.image)
-		return(unexpected_crash(window.mlx), EXIT_FAILURE);
-	if (mlx_image_to_window(window.mlx, window.image, 0, 0) == -1)
-		return(unexpected_crash(window.mlx), EXIT_FAILURE);
 	load_hooks(&window);
 	mlx_loop(window.mlx);
 	mlx_terminate(window.mlx);
