@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/19 17:02:25 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/19 17:05:38 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	load_hooks(t_mlx_data *window);
 void	key_hooks(void *param);
-
-mlx_image_t	*draw_rect(mlx_t *mlx, int x, int y, unsigned int color);
 
 int	main(void)
 {
