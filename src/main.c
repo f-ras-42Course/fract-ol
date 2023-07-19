@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/18 20:16:57 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/19 17:02:25 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	main(void)
 		return (unexpected_crash(window.mlx), EXIT_FAILURE);
 	if (mlx_image_to_window(window.mlx, window.image, 0, 0) == -1)
 		return(unexpected_crash(window.mlx), EXIT_FAILURE);
-	window.rectangle = draw_rect(window.mlx, 30, 30, 0x6432ffff);
-	mlx_image_to_window(window.mlx, window.rectangle, 720, 450);
+	window.rectangle = draw_rect(window.mlx, 1440, 900, 0x6432ffff);
+	mlx_image_to_window(window.mlx, window.rectangle, 0, 0);
 	load_hooks(&window);
 	mlx_loop(window.mlx);
 	mlx_terminate(window.mlx);
