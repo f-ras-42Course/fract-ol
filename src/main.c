@@ -6,13 +6,13 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/19 17:44:48 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/19 18:28:52 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	load_hooks(t_mlx_data *window);
+bool	load_hooks(t_mlx_data *window);
 void	key_hooks(void *param);
 
 int	main(void)
@@ -24,7 +24,8 @@ int	main(void)
 		return (unexpected_crash(window.mlx), EXIT_FAILURE);
 	if(!init_fractal(&window))
 		return (unexpected_crash(window.mlx), EXIT_FAILURE);
-	load_hooks(&window);
+	if(!load_hooks(&window))
+		return (unexpected_crash(window.mlx), EXIT_FAILURE);
 	mlx_loop(window.mlx);
 	mlx_terminate(window.mlx);
 	printf("\nFRACTOL Success - terminated.\n");
@@ -59,8 +60,8 @@ void	good_bye_X(void *param)
 	ft_putstr_fd("You can also close using 'ESC' or 'Q'!\n", STDOUT_FILENO);
 }
 
-void	load_hooks(t_mlx_data *window)
+bool	load_hooks(t_mlx_data *window)
 {
 	mlx_close_hook(window->mlx, good_bye_X, NULL);
-	mlx_loop_hook(window->mlx, key_hooks, window);
+	return (mlx_loop_hook(window->mlx, key_hooks, window));
 }
