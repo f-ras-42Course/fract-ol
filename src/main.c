@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/22 09:07:10 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/22 09:11:11 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,12 @@ void	show_fps(void)
 {
 	static int	second;
 	static int	frames;
-	static int	last_second;
 
-	if (mlx_get_time() > second)
-		second++;
 	frames++;
-	if(second > last_second)
+	if(mlx_get_time() > second)
 	{
 		printf("%d FPS\n", frames);
-		last_second++;
+		second++;
 		frames = 0;
 	}
 }
