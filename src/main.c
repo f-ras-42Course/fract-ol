@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/19 18:28:52 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/22 08:42:12 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void	key_hooks(void *param)
 void	good_bye_X(void *param)
 {
 	param = NULL;
+	if (param)
+		return ;
 	ft_putstr_fd("You can also close using 'ESC' or 'Q'!\n", STDOUT_FILENO);
 }
 
