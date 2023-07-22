@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/14 13:28:13 by fras          #+#    #+#                  #
-#    Updated: 2023/07/22 08:37:52 by fras          ########   odam.nl          #
+#    Updated: 2023/07/22 08:48:31 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,11 +88,11 @@ message:
 	@echo "\033[92m$(EXECUTABLE) is ready for usage!\033[0m"
 
 # Submodule functions
-initialize_submodules:
+init_subm:
 	git submodule update --init --recursive
 	git submodule foreach --recursive git checkout master
 
-update_submodules:
+update_subm:
 	git submodule update --recursive
 	git submodule foreach --recursive git fetch
 	git submodule foreach git merge origin master
