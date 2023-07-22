@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/22 08:42:12 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/22 09:07:10 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 bool	load_hooks(t_mlx_data *window);
 void	key_hooks(void *param);
+void	show_fps(void);
 
 int	main(void)
 {
@@ -52,6 +53,24 @@ void	key_hooks(void *param)
 	if (mlx_is_key_down(window->mlx, MLX_KEY_D)\
 		|| mlx_is_key_down(window->mlx, MLX_KEY_RIGHT))
 		window->image->instances->x += 5;
+	show_fps();
+}
+
+void	show_fps(void)
+{
+	static int	second;
+	static int	frames;
+	static int	last_second;
+
+	if (mlx_get_time() > second)
+		second++;
+	frames++;
+	if(second > last_second)
+	{
+		printf("%d FPS\n", frames);
+		last_second++;
+		frames = 0;
+	}
 }
 
 void	good_bye_X(void *param)
