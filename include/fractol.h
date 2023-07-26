@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/26 18:02:10 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/27 01:40:46 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 # define WIDTH 1440
 # define HEIGHT 900
-# define MAX_ITERATION 100
+# define MAX_ITERATION 250
 # define X 0
 # define Y 1
 # define COLOR1 0x424242ff
@@ -42,14 +42,14 @@ typedef struct s_mlx_data
 
 typedef struct s_canvas
 {
-	int	x_coordinate_zero;
-	int y_coordinate_zero;
-	int x_size;
-	int y_size;
-	float x_increments;
-	float y_decrements;
-	float plus_zoom;
-	float minus_zoom;
+	double	x_coordinate_zero;
+	double	y_coordinate_zero;
+	double	x_size;
+	double	y_size;
+	double	x_increments;
+	double	y_decrements;
+	double	plus_zoom;
+	double	minus_zoom;
 }	t_canvas;
 
 typedef struct t_all
@@ -57,6 +57,8 @@ typedef struct t_all
 	t_mlx_data	window;
 	t_canvas	canvas;
 }	t_all;
+
+// typedef enum e_zoom_mode	{minus, plus}	t_zoom_mode;
 
 //Background
 mlx_image_t	*draw_rectangle(mlx_t *mlx, int width, int height, unsigned int color);
@@ -80,10 +82,13 @@ void	init_canvas(t_canvas *canvas);
 
 bool	load_hooks(t_all *data);
 void	loop_hooks(void *param);
-void	key_hooks(t_mlx_data *window);
+void	key_hooks(mlx_key_data_t keydata, void *param);
 void	image_hooks(t_mlx_data *window, t_canvas *canvas);
-void	show_fps(void);
+void	show_fps(bool key_press);
+int		calls_per_second(void);
 void	good_bye_X(void *param);
+
+void	image_zoom(mlx_key_data_t keydata, t_canvas *canvas);
 
 
 #endif

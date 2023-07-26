@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/26 19:59:56 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/27 01:40:11 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,85 @@
 
 bool	load_hooks(t_all *data)
 {
-	key_hooks(&data->window);
+	mlx_key_hook(data->window.mlx, key_hooks, data);
 	mlx_close_hook(data->window.mlx, good_bye_X, NULL);
 	return (mlx_loop_hook(data->window.mlx, loop_hooks, data));
 }
 
 void	loop_hooks(void *param)
 {
-	t_all		*data;
-	data = param;
+	t_all *data;
 
-	image_hooks(&data->window, &data->canvas);
-	show_fps();
+	data = param;
+	if (mlx_is_key_down(data->window.mlx, MLX_KEY_ESCAPE)\
+		|| mlx_is_key_down(data->window.mlx, MLX_KEY_Q))
+		mlx_close_window(data->window.mlx);
+	if (calls_per_second() == 0 || calls_per_second() == 30 || calls_per_second() == 60)
+		image_hooks(&data->window, &data->canvas);
+	// printf("A: %d, B: %d, C: %d\n", calls_per_second(), calls_per_second(), calls_per_second());
+	show_fps(false);
+	// printf("FIRSTCALL: %d, SECONDCALL %d\n", get_fps(), get_fps());
 }
 
-void	key_hooks(t_mlx_data *window)
+void	key_hooks(mlx_key_data_t keydata, void *param)
 {
-//new function
+	t_all *data;
+	t_mlx_data *window;
+	t_canvas *canvas;
+	
+	data = param;
+	window = &data->window;
+	canvas = &data->canvas;
+	if ((keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)\
+		|| (keydata.key == MLX_KEY_Q && keydata.action == MLX_PRESS))
+		mlx_close_window(data->window.mlx);
+	if ((keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)\
+		|| (keydata.key == MLX_KEY_UP && keydata.action == MLX_PRESS))
+		canvas->y_coordinate_zero *= 1.25;
+	if ((keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)\
+		|| (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS))
+		canvas->x_coordinate_zero *= 1.25;
+	if ((keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)\
+		|| (keydata.key ==MLX_KEY_DOWN && keydata.action == MLX_PRESS))
+		canvas->y_coordinate_zero *= 0.75;
+	if ((keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)\
+	|| (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS))
+		canvas->x_coordinate_zero *= 0.75;
+	if (keydata.key == MLX_KEY_F && keydata.action == MLX_PRESS)
+		show_fps(true);
+	image_zoom(keydata, canvas);
+	// printf("Show time: %f\n", mlx_get_time());
 }
 
 void	image_hooks(t_mlx_data *window, t_canvas *canvas)
 {
 	draw_mandelbrot(window->image, canvas);
-	show_fps();
 }
 
+void	image_zoom(mlx_key_data_t keydata, t_canvas *canvas)
+{
+	if (keydata.key == MLX_KEY_MINUS && keydata.action == MLX_PRESS)
+	{
+		canvas->x_coordinate_zero *= canvas->minus_zoom;
+		canvas->y_coordinate_zero *= canvas->minus_zoom;
+		canvas->x_increments *= canvas->minus_zoom;
+		canvas->y_decrements *= canvas->minus_zoom;
+		printf("IMAGE MINUSZOOM = \
+	// \ncanvas->x_coordinate_zero = %f\
+	// \ncanvas->y_coordinate_zero = %f\
+	// \ncanvas->x_increments = %f\
+	// \ncanvas->y_decrements= %f\n", canvas->x_coordinate_zero, canvas->y_coordinate_zero, canvas->x_increments, canvas->y_decrements);
+	}
+	if (keydata.key == MLX_KEY_EQUAL && keydata.action == MLX_PRESS)
+	{
+		canvas->x_coordinate_zero *= canvas->plus_zoom;
+		canvas->y_coordinate_zero *= canvas->plus_zoom;
+		canvas->x_increments *= canvas->plus_zoom;
+		canvas->y_decrements *= canvas->plus_zoom;
+		printf("IMAGE PLUSZOOM = \
+	// \ncanvas->x_coordinate_zero = %f\
+	// \ncanvas->y_coordinate_zero = %f\
+	// \ncanvas->x_increments = %f\
+	// \ncanvas->y_decrements= %f\n", canvas->x_coordinate_zero, canvas->y_coordinate_zero, canvas->x_increments, canvas->y_decrements);
+	}
+}
