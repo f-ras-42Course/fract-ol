@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/14 13:28:13 by fras          #+#    #+#                  #
-#    Updated: 2023/07/22 08:48:31 by fras          ########   odam.nl          #
+#    Updated: 2023/07/23 19:34:36 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = fractol
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
-MLX42_FLAGS = -framework Cocoa -framework OpenGL -framework IOKit -lglfw
+MLX42_FLAGS = -framework Cocoa -framework OpenGL -framework IOKit -lglfw3
 INCLUDE = -I include -I $(MLX42_DIR)/include
 SRC_DIR = src
 OBJ_DIR = obj

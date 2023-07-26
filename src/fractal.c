@@ -6,27 +6,27 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/19 17:19:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/19 17:40:58 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/25 16:59:49 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-bool	init_fractal(t_mlx_data *window)
+bool	init_fractal(t_mlx_data *window, t_canvas *canvas)
 {
-	if(!create_fractal(window))
+	if(!create_fractal(window, canvas))
 		return (false);
 	if (!insert_fractal(window))
 		return(false);
 	return (true);
 }
 
-bool	create_fractal(t_mlx_data *window)
+bool	create_fractal(t_mlx_data *window, t_canvas *canvas)
 {
-	window->background = draw_rectangle(window->mlx, 1440, 900, 0x6432ffff);
+	window->background = draw_rectangle(window->mlx, WIDTH, HEIGHT, 0x6432ffff);
 	if (!window->background)
 		return (false);
-	window->image = draw_rectangle(window->mlx, 1440, 900, 0x424242ff);
+	window->image = init_mandelbrot(window->mlx, canvas);
 	if (!window->image)
 		return (false);
 	return (true);
