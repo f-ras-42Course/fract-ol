@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   draw.c                                             :+:    :+:            */
+/*   info.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/07/19 17:03:39 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/26 18:02:17 by fras          ########   odam.nl         */
+/*   Created: 2023/07/26 17:57:54 by fras          #+#    #+#                 */
+/*   Updated: 2023/07/26 17:58:33 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-mlx_image_t	*draw_rectangle(mlx_t *mlx, int width, int height, unsigned int color)
+void	show_fps(void)
 {
-	mlx_image_t	*rectangle;
-	int			x;
-	int			y;
+	static int	second;
+	static int	frames;
 
-	x = 0;
-	y = 0;
-	rectangle = mlx_new_image(mlx, width, height);
-	if (!rectangle)
-		return (NULL);
-	while (y < height)
+	frames++;
+	if(mlx_get_time() > second)
 	{
-		mlx_put_pixel(rectangle, x++, y, color);
-		if(x >= width)
-		{
-			x = 0;
-			y++;
-		}
+		printf("%d FPS\n", frames);
+		second++;
+		frames = 0;
 	}
-	return (rectangle);
 }
 
+void	good_bye_X(void *param)
+{
+	param = NULL;
+	if (param)
+		return ;
+	ft_putstr_fd("You can also close using 'ESC' or 'Q'!\n", STDOUT_FILENO);
+}

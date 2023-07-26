@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/25 17:53:49 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/26 18:02:10 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,32 @@ typedef struct t_all
 	t_canvas	canvas;
 }	t_all;
 
+//Background
+mlx_image_t	*draw_rectangle(mlx_t *mlx, int width, int height, unsigned int color);
 
-// Init fractal = Create fractal -> Insert Fractal
+//Fractal
 bool		create_fractal(t_mlx_data *window, t_canvas *canvas);
 bool		insert_fractal(t_mlx_data *window);
 bool		init_fractal(t_mlx_data *window, t_canvas *canvas);
+void		put_fractal_pixel(mlx_image_t *mandelbrot, int  pixel_pos[], double canvas_pos[]);
 
-mlx_image_t	*draw_rectangle(mlx_t *mlx, int width, int height, unsigned int color);
+//Types
 mlx_image_t	*init_mandelbrot(mlx_t *mlx, t_canvas *canvas);
 mlx_image_t	*draw_mandelbrot(mlx_image_t *mandelbrot, t_canvas *canvas);
 
-void	put_fractal_pixel(mlx_image_t *mandelbrot, int  pixel_pos[], double canvas_pos[]);
 int	calculate_mandelbrot(double x_constant, double y_constant);
 
 void	init_canvas(t_canvas *canvas);
+
+
+// Hooks
+
+bool	load_hooks(t_all *data);
+void	loop_hooks(void *param);
+void	key_hooks(t_mlx_data *window);
+void	image_hooks(t_mlx_data *window, t_canvas *canvas);
+void	show_fps(void);
+void	good_bye_X(void *param);
+
 
 #endif
