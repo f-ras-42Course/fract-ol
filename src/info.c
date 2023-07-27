@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:54 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/27 01:26:15 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/27 02:13:25 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,19 @@ void	show_fps(bool key_press)
 	}
 }
 
-int		calls_per_second(void)
-{
-	static int	second;
-	static int	frames;
+// int		calls_per_second(void)
+// {
+// 	static int	second;
+// 	static int	frames;
 
-	frames++;
-	if(mlx_get_time() > second)
-	{
-		second++;
-		frames = 0;
-	}
-	return (frames);
-}
+// 	frames++;
+// 	if(mlx_get_time() > second)
+// 	{
+// 		second++;
+// 		frames = 0;
+// 	}
+// 	return (frames);
+// }
 
 void	good_bye_X(void *param)
 {

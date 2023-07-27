@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/27 01:40:11 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/27 02:17:09 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,19 @@ bool	load_hooks(t_all *data)
 
 void	loop_hooks(void *param)
 {
+	static int loops;
 	t_all *data;
 
 	data = param;
+	loops++;
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_ESCAPE)\
 		|| mlx_is_key_down(data->window.mlx, MLX_KEY_Q))
 		mlx_close_window(data->window.mlx);
-	if (calls_per_second() == 0 || calls_per_second() == 30 || calls_per_second() == 60)
+	if (loops == 10)
+	{
 		image_hooks(&data->window, &data->canvas);
-	// printf("A: %d, B: %d, C: %d\n", calls_per_second(), calls_per_second(), calls_per_second());
+		loops = 0;
+	}
 	show_fps(false);
 	// printf("FIRSTCALL: %d, SECONDCALL %d\n", get_fps(), get_fps());
 }

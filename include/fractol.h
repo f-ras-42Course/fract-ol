@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/27 01:40:46 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/27 02:20:20 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void	loop_hooks(void *param);
 void	key_hooks(mlx_key_data_t keydata, void *param);
 void	image_hooks(t_mlx_data *window, t_canvas *canvas);
 void	show_fps(bool key_press);
-int		calls_per_second(void);
 void	good_bye_X(void *param);
 
 void	image_zoom(mlx_key_data_t keydata, t_canvas *canvas);
