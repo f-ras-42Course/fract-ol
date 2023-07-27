@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/27 02:26:48 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/27 02:28:45 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	loop_hooks(void *param)
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_ESCAPE)\
 		|| mlx_is_key_down(data->window.mlx, MLX_KEY_Q))
 		mlx_close_window(data->window.mlx);
-	printf("x");
 	if (loops == 10)
 	{
 		image_hooks(&data->window, &data->canvas);
