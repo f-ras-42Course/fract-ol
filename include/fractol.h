@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/27 02:20:20 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/27 02:22:54 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ void	show_fps(bool key_press);
 void	good_bye_X(void *param);
 
 void	image_zoom(mlx_key_data_t keydata, t_canvas *canvas);
+
+void	show_canvas_data(t_canvas canvas);
 
 
 #endif

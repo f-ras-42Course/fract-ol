@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:54 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/27 02:13:25 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/27 02:24:55 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,19 @@ void	show_fps(bool key_press)
 	}
 }
 
-// int		calls_per_second(void)
-// {
-// 	static int	second;
-// 	static int	frames;
-
-// 	frames++;
-// 	if(mlx_get_time() > second)
-// 	{
-// 		second++;
-// 		frames = 0;
-// 	}
-// 	return (frames);
-// }
-
 void	good_bye_X(void *param)
 {
 	param = NULL;
 	if (param)
 		return ;
 	ft_putstr_fd("You can also close using 'ESC' or 'Q'!\n", STDOUT_FILENO);
+}
+
+void	show_canvas_data(t_canvas canvas)
+{
+	printf("CANVAS DATA = \
+	// \ncanvas->x_coordinate_zero = %f\
+	// \ncanvas->y_coordinate_zero = %f\
+	// \ncanvas->x_increments = %f\
+	// \ncanvas->y_decrements= %f\n", canvas.x_coordinate_zero, canvas.y_coordinate_zero, canvas.x_increments, canvas.y_decrements);
 }
