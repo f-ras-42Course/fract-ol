@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/27 02:28:45 by fras          ########   odam.nl         */
+/*   Updated: 2023/07/27 18:29:37 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,9 @@ void	loop_hooks(void *param)
 void	key_hooks(mlx_key_data_t keydata, void *param)
 {
 	t_all *data;
-	t_mlx_data *window;
 	t_canvas *canvas;
 	
 	data = param;
-	window = &data->window;
 	canvas = &data->canvas;
 	if ((keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)\
 		|| (keydata.key == MLX_KEY_Q && keydata.action == MLX_PRESS))
