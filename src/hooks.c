@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/15 17:07:22 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/15 17:09:15 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ void	key_hooks(mlx_key_data_t keydata, void *param)
 		show_fps(true);
 	if (keydata.key == MLX_KEY_C && keydata.action == MLX_PRESS)
 		show_canvas_data(*canvas);
-	// if (keydata.action == MLX_PRESS)
-	// 	image_hooks(&data->window, &data->canvas);
 	image_zoom(keydata, canvas);
 	// printf("Show time: %f\n", mlx_get_time());
 }
