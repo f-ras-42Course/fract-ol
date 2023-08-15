@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/27 18:36:55 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/15 17:07:22 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,14 @@ bool	load_hooks(t_all *data)
 
 void	loop_hooks(void *param)
 {
-	static int loops;
 	t_all *data;
 
 	data = param;
-	loops++;
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_ESCAPE)\
 		|| mlx_is_key_down(data->window.mlx, MLX_KEY_Q))
 		mlx_close_window(data->window.mlx);
-	if (loops == 10)
-	{
-		image_hooks(&data->window, &data->canvas);
-		loops = 0;
-	}
-	show_fps(false);
-	// printf("FIRSTCALL: %d, SECONDCALL %d\n", get_fps(), get_fps());
+	image_hooks(&data->window, &data->canvas);
+	show_fps(0);
 }
 
 void	key_hooks(mlx_key_data_t keydata, void *param)
@@ -64,6 +57,8 @@ void	key_hooks(mlx_key_data_t keydata, void *param)
 		show_fps(true);
 	if (keydata.key == MLX_KEY_C && keydata.action == MLX_PRESS)
 		show_canvas_data(*canvas);
+	// if (keydata.action == MLX_PRESS)
+	// 	image_hooks(&data->window, &data->canvas);
 	image_zoom(keydata, canvas);
 	// printf("Show time: %f\n", mlx_get_time());
 }
