@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/16 22:53:52 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/16 22:55:46 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	key_hooks(mlx_key_data_t keydata, void *param)
 	
 	data = param;
 	canvas = &data->canvas;
-
 	if ((keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)\
 		|| (keydata.key == MLX_KEY_Q && keydata.action == MLX_PRESS))
 		mlx_close_window(data->window.mlx);
