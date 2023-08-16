@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:56:16 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/27 01:32:03 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/16 19:14:46 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	init_canvas(t_canvas *canvas)
 	canvas->y_size = 2;
 	canvas->x_increments = (double)canvas->x_size/(WIDTH - 1);
 	canvas->y_decrements = (double)canvas->y_size/(HEIGHT - 1);
-	canvas->plus_zoom = 0.90;
-	canvas->minus_zoom = 1.1;
+	canvas->plus_zoom = 0.8888888888888888;
+	canvas->minus_zoom = 1.125;
 }
