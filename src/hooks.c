@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/16 21:29:40 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/16 22:53:52 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,27 @@ void	loop_hooks(void *param)
 
 void	key_hooks(mlx_key_data_t keydata, void *param)
 {
-	t_all *data;
-	t_canvas *canvas;
+	t_all		*data;
+	t_canvas	*canvas;
 	
 	data = param;
 	canvas = &data->canvas;
+
 	if ((keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)\
 		|| (keydata.key == MLX_KEY_Q && keydata.action == MLX_PRESS))
 		mlx_close_window(data->window.mlx);
 	if ((keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)\
 		|| (keydata.key == MLX_KEY_UP && keydata.action == MLX_PRESS))
-		canvas->y_coordinate_zero *= 1.25;
+		canvas->y_coordinate_zero += (HEIGHT * 0.125) * canvas->y_decrements;
 	if ((keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)\
 		|| (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS))
-		canvas->x_coordinate_zero *= 1.25;
+		canvas->x_coordinate_zero -= (WIDTH * 0.125) * canvas->x_increments;
 	if ((keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)\
 		|| (keydata.key ==MLX_KEY_DOWN && keydata.action == MLX_PRESS))
-		canvas->y_coordinate_zero *= 0.80;
+		canvas->y_coordinate_zero -= (HEIGHT * 0.125) * canvas->y_decrements;
 	if ((keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)\
 	|| (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS))
-		canvas->x_coordinate_zero *= 0.80;
+		canvas->x_coordinate_zero += (WIDTH * 0.125) * canvas->x_increments;
 	if (keydata.key == MLX_KEY_F && keydata.action == MLX_PRESS)
 		show_fps(true);
 	if (keydata.key == MLX_KEY_C && keydata.action == MLX_PRESS)
