@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/14 13:28:13 by fras          #+#    #+#                  #
-#    Updated: 2023/08/18 16:25:56 by fras          ########   odam.nl          #
+#    Updated: 2023/08/18 18:16:34 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ CFLAGS += -fsanitize=address -g
 endif
 
 ifdef OPTIM
-CFLAGS += -O3 -flto -march=native
+CFLAGS += -Ofast -flto -march=native
 endif
 
 # Targets
@@ -79,6 +79,7 @@ re: fclean all
 # Optimize
 optim:
 	$(MAKE) OPTIM=1
+roptim: fclean optim
 
 # Debugging
 debug:
