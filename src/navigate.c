@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/18 13:43:51 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/18 13:51:17 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/18 14:04:50 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,13 @@
 
 void	image_move_keys(mlx_key_data_t keydata, t_canvas *canvas)
 {
-	if ((keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)\
-		|| (keydata.key == MLX_KEY_UP && keydata.action == MLX_PRESS))
+	if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP))
 		canvas->y_coordinate_zero += (HEIGHT * 0.125) * canvas->y_decrements;
-	if ((keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)\
-		|| (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS))
+	if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_LEFT))
 		canvas->x_coordinate_zero -= (WIDTH * 0.125) * canvas->x_increments;
-	if ((keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)\
-		|| (keydata.key ==MLX_KEY_DOWN && keydata.action == MLX_PRESS))
+	if ((keydata.key == MLX_KEY_S || keydata.key ==MLX_KEY_DOWN))
 		canvas->y_coordinate_zero -= (HEIGHT * 0.125) * canvas->y_decrements;
-	if ((keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)\
-	|| (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS))
+	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT))
 		canvas->x_coordinate_zero += (WIDTH * 0.125) * canvas->x_increments;
 }
 
@@ -37,12 +33,12 @@ void	image_zoom_keys(mlx_key_data_t keydata, t_canvas *canvas)
 	
 	x_midscreen_canvas_value = canvas->x_coordinate_zero + ((WIDTH / 2) * canvas->x_increments);
 	y_midscreen_canvas_value = canvas->y_coordinate_zero - ((HEIGHT / 2) * canvas->y_decrements);
-	if (keydata.key == MLX_KEY_MINUS && keydata.action == MLX_PRESS)
+	if (keydata.key == MLX_KEY_MINUS)
 	{
 		canvas->x_increments *= canvas->minus_zoom;
 		canvas->y_decrements *= canvas->minus_zoom;
 	}
-	if (keydata.key == MLX_KEY_EQUAL && keydata.action == MLX_PRESS)
+	if (keydata.key == MLX_KEY_EQUAL)
 	{
 		canvas->x_increments *= canvas->plus_zoom;
 		canvas->y_decrements *= canvas->plus_zoom;
