@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/14 13:28:13 by fras          #+#    #+#                  #
-#    Updated: 2023/07/27 18:30:03 by fras          ########   odam.nl          #
+#    Updated: 2023/08/18 16:25:56 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = fractol
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
-MLX42_FLAGS = -framework Cocoa -framework OpenGL -framework IOKit -lglfw
+MLX42_FLAGS = -framework Cocoa -framework OpenGL -framework IOKit -lglfw3
 INCLUDE = -I include -I $(MLX42_DIR)/include
 SRC_DIR = src
 OBJ_DIR = obj
@@ -35,6 +35,10 @@ endif
 
 ifdef FSAN
 CFLAGS += -fsanitize=address -g
+endif
+
+ifdef OPTIM
+CFLAGS += -O3 -flto -march=native
 endif
 
 # Targets
@@ -71,6 +75,10 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+# Optimize
+optim:
+	$(MAKE) OPTIM=1
 
 # Debugging
 debug:
