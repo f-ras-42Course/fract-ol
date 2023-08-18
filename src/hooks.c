@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/18 14:05:50 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/18 15:10:25 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ void	key_hooks(mlx_key_data_t keydata, void *param)
 	{
 		if (keydata.key == MLX_KEY_ESCAPE || keydata.key == MLX_KEY_Q)
 			mlx_close_window(data->window.mlx);
-		image_move_keys(keydata, canvas);
 		if (keydata.key == MLX_KEY_F)
 			show_fps(true);
 		if (keydata.key == MLX_KEY_C)
 			show_canvas_data(*canvas);
 		if (keydata.key == MLX_KEY_MINUS || keydata.key == MLX_KEY_EQUAL)
 			image_zoom_keys(keydata, canvas);
+		image_move_keys(keydata, canvas);
 	}
 }
 

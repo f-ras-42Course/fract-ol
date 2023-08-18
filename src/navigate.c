@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/18 13:43:51 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/18 15:08:26 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/18 15:13:15 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void	image_zoom_keys(mlx_key_data_t keydata, t_canvas *canvas)
 	double	x_midscreen_canvas_value;
 	double	y_midscreen_canvas_value;
 	
-	x_midscreen_canvas_value = \
+	x_midscreen_canvas_value =\
 		canvas->x_coordinate_zero + ((WIDTH / 2) * canvas->x_increments);
-	y_midscreen_canvas_value = \
+	y_midscreen_canvas_value =\
 		canvas->y_coordinate_zero - ((HEIGHT / 2) * canvas->y_decrements);
 	if (keydata.key == MLX_KEY_MINUS)
 	{
@@ -45,9 +45,9 @@ void	image_zoom_keys(mlx_key_data_t keydata, t_canvas *canvas)
 		canvas->x_increments *= canvas->plus_zoom;
 		canvas->y_decrements *= canvas->plus_zoom;
 	}
-	canvas->x_coordinate_zero = \
+	canvas->x_coordinate_zero =\
 		x_midscreen_canvas_value - ((WIDTH / 2) * canvas->x_increments);
-	canvas->y_coordinate_zero = \
+	canvas->y_coordinate_zero =\
 		y_midscreen_canvas_value + ((HEIGHT / 2) * canvas->y_decrements);
 }
 
@@ -69,6 +69,8 @@ void    image_zoom_mouse(double ydelta, mlx_t *mlx, t_canvas *canvas)
         canvas->x_increments *= canvas->minus_zoom;
         canvas->y_decrements *= canvas->minus_zoom;
     }
-	canvas->x_coordinate_zero += (x_mouse_pos - (WIDTH / 2)) * canvas->x_increments;
-	canvas->y_coordinate_zero -= (y_mouse_pos - (HEIGHT / 2)) * canvas->y_decrements;
+	canvas->x_coordinate_zero +=\
+		(x_mouse_pos - (WIDTH / 2)) * canvas->x_increments;
+	canvas->y_coordinate_zero -=\
+		(y_mouse_pos - (HEIGHT / 2)) * canvas->y_decrements;
 }
