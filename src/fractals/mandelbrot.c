@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:54:51 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/21 19:32:00 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/21 21:54:15 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,19 @@ void	put_fractal_pixel(mlx_image_t *mandelbrot, int  pixel_pos[], double canvas_
 {
 	int			in_set_check;
 
+	static int counter = 12;
 	in_set_check = calculate_mandelbrot(canvas_pos[X], canvas_pos[Y]);
-	if (in_set_check < MAX_ITERATION)
+	if (in_set_check == counter)
+		mlx_put_pixel(mandelbrot, pixel_pos[X], pixel_pos[Y], 0x1247aaff);
+	else if (in_set_check < MAX_ITERATION && in_set_check != counter)
 		mlx_put_pixel(mandelbrot, pixel_pos[X], pixel_pos[Y], COLOR2);
 	else
-		mlx_put_pixel(mandelbrot, pixel_pos[X], pixel_pos[Y], COLOR1);
+		mlx_put_pixel(mandelbrot, pixel_pos[X], pixel_pos[Y], BLACK);
+	if (pixel_pos[X] == 1439 && pixel_pos[Y] == 899)
+	{
+		printf("counter: %d\n", counter);
+		// counter++;;
+	}
 }
 
 int	calculate_mandelbrot(double x_constant, double y_constant)

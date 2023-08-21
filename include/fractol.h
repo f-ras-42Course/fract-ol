@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/18 16:50:28 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/21 21:54:06 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define Y 1
 # define COLOR1 0x424242ff
 # define COLOR2 0x6432ffff
+# define BLACK	0x000000ff
 
 typedef struct s_mlx_data
 {

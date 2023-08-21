@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/26 18:02:14 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/21 20:45:40 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 int	main(void)
 {
-	t_all		data;
+	t_all	data;
+	// int		colorscheme[MAX_ITERATION + 1];
 
 	data.window.mlx = mlx_init(WIDTH, HEIGHT, "Fractality! - yeah", false);
 	if (!data.window.mlx)
 		return (unexpected_crash(data.window.mlx), EXIT_FAILURE);
 	init_canvas(&data.canvas);
+	// init_colorscheme(colorscheme);
 	if(!init_fractal(&data.window, &data.canvas))
 		return (unexpected_crash(data.window.mlx), EXIT_FAILURE);
 	if(!load_hooks(&data))
