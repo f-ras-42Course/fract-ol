@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:54:51 by fras          #+#    #+#                 */
-/*   Updated: 2023/07/27 01:32:03 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/21 19:32:00 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int	calculate_mandelbrot(double x_constant, double y_constant)
 		xtemp = x;
 		x = (x * x) - (y * y) + x_constant;
 		y = 2 * y * xtemp + y_constant;
-		i++;
 	}
 	return (i);
 }
