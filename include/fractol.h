@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/21 21:54:06 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/22 21:01:49 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <unistd.h>
 # include <stdbool.h>
 # include <math.h>
+# include <stdint.h>
 
 # ifndef DEBUG
 #  define DEBUG 0
