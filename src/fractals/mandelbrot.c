@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:54:51 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/21 21:54:15 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/22 21:38:19 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	calculate_mandelbrot(double x_constant, double y_constant)
 	x = x_constant;
 	y = y_constant;
 	i = 0;
-	while ((x * x) + (y * y) < 4 && i++ < MAX_ITERATION)
+	while ((x * x) + (y * y) < 4 && i++ < MAX_ITERATION - 1)
 	{
 		xtemp = x;
 		x = (x * x) - (y * y) + x_constant;
