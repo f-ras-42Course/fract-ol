@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 19:36:03 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/22 21:17:18 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/22 21:19:15 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	rgba2color(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
 	return (color);
 }
 
-void	init_color_scheme(int start_color, int r_o, int g_o, int b_o,\
-		 int *color_scheme)
+void	init_color_scheme(int start_color, uint8_t r_o, uint8_t g_o,\
+			uint8_t b_o, int *color_scheme)
 {
 	int i;
 	uint8_t r;
