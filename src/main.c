@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/23 16:21:44 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 16:23:29 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int	main(void)
 	if (!data.window.mlx)
 		return (unexpected_crash(data.window.mlx), EXIT_FAILURE);
 	init_canvas(&data.canvas);
-	// 0x817FA0ff
-	// 
 	init_color_scheme(0x541010ff, 1, 1, 1, data.color_scheme);
 	if(!init_fractal(&data.window, &data.canvas, data.color_scheme))
 		return (unexpected_crash(data.window.mlx), EXIT_FAILURE);
