@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/23 17:12:17 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 21:15:07 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define WIDTH 1440
 # define HEIGHT 900
 # define MAX_ITERATION 250
+# define MENU_INSTRUCTIONS 7
 # define X 0
 # define Y 1
 # define COLOR1 0x424242ff
@@ -39,6 +40,7 @@ typedef struct s_mlx_data
 {
 	mlx_t		*mlx;
 	mlx_image_t *image;
+	mlx_image_t *menu[MENU_INSTRUCTIONS];
 }	t_mlx_data;
 
 typedef struct s_canvas
@@ -91,7 +93,8 @@ void    image_zoom_mouse(double ydelta, mlx_t *mlx, t_canvas *cvs);
 
 void	show_canvas_data(t_canvas canvas);
 
-void	show_menu(mlx_t *mlx);
+void	show_menu(mlx_t *mlx, mlx_image_t *menu[]);
+void	toggle_menu(mlx_image_t	**menu);
 
 // Color
 
