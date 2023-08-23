@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/21 19:15:39 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 14:14:10 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	scroll_hooks(double xdelta, double ydelta, void* param)
 	t_all		*data;
 
 	xdelta = 0;
+	ydelta += xdelta;
 	data = param;
 	if (ydelta != 0)
 		image_zoom_mouse(ydelta, data->window.mlx, &data->canvas);
@@ -69,4 +70,3 @@ void	image_hooks(t_mlx_data *window, t_canvas *canvas)
 {
 	draw_mandelbrot(window->image, canvas);
 }
-
