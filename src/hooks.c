@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/23 21:08:26 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 22:26:17 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	key_hooks(mlx_key_data_t keydata, void *param)
 			init_canvas(canvas);
 		if (keydata.key == MLX_KEY_M)
 			toggle_menu(data->window.menu);
+		if (keydata.key == MLX_KEY_P)
+			toggle_psycmode(data->color_scheme);
 		image_move_keys(keydata, canvas);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/18 13:43:51 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/23 21:25:34 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 22:28:56 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	show_menu(mlx_t *mlx, mlx_image_t *menu[])
 	menu[item++] =  mlx_put_string(mlx, "C: Print canvas values", x, y += 20);
 	menu[item++] =  mlx_put_string(mlx, "F: Show/hide FPS", x, y += 20);
 	menu[item++] =  mlx_put_string(mlx, "M: Show/hide menu", x, y += 20);
+	menu[item++] =  mlx_put_string(mlx, "P: Toggle psychedelic mode", x, y += 20);
 	menu[item++] =  mlx_put_string(mlx, "Q or ESC: Exit program", x, y += 20);
 }
 

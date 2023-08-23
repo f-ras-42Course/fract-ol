@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 19:36:03 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/22 21:36:45 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 22:01:56 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,14 @@ void	init_color_scheme(uint32_t start_color, uint8_t r_o, uint8_t g_o,\
 	color_scheme[i++] = rgba2color(r, g, b, a);
 	while (i < MAX_ITERATION)
 		color_scheme[i++] = rgba2color(r += r_o, g += g_o, b += b_o, a);
-	color_scheme[i] = BLACK;
+	color_scheme[MAX_ITERATION] = BLACK;
+	color_scheme[PSYC_MODE] = false;
+}
+
+void	toggle_psycmode(uint32_t color_scheme[])
+{
+	if (color_scheme[PSYC_MODE] == true)
+		color_scheme[PSYC_MODE] = false;
+	else
+		color_scheme[PSYC_MODE] = true;
 }
