@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/18 13:43:51 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/23 17:25:03 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 17:26:16 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,8 @@ void	show_menu(mlx_t *mlx)
 	y = 0;
 	mlx_put_string(mlx, "WASD or arrows: Move up/left/down/right", 10, y += 20);
 	mlx_put_string(mlx, "-/+ or scroll-wheel: Zoom in/out", 10, y += 20);
-	mlx_put_string(mlx, "R: Reset to start canvas", 10, y += 20);
+	mlx_put_string(mlx, "R: Reset to start", 10, y += 20);
 	mlx_put_string(mlx, "C: Print canvas values", 10, y += 20);
 	mlx_put_string(mlx, "F: Show/hide FPS", 10, y += 20);
 	mlx_put_string(mlx, "Q or ESC: Exit program", 10, y += 20);
-
 }
