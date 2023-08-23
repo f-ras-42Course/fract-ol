@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/23 16:23:29 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 17:14:15 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(void)
 		return (unexpected_crash(data.window.mlx), EXIT_FAILURE);
 	if(!load_hooks(&data))
 		return (unexpected_crash(data.window.mlx), EXIT_FAILURE);
+	show_menu(data.window.mlx);
 	mlx_loop(data.window.mlx);
 	mlx_terminate(data.window.mlx);
 	printf("\nFRACTOL Success - terminated.\n");

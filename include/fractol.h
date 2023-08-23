@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/23 16:32:54 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 17:12:17 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ void	image_zoom_keys(mlx_key_data_t keydata, t_canvas *cvs);
 void    image_zoom_mouse(double ydelta, mlx_t *mlx, t_canvas *cvs);
 
 void	show_canvas_data(t_canvas canvas);
+
+void	show_menu(mlx_t *mlx);
 
 // Color
 

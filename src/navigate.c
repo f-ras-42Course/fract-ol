@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/18 13:43:51 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/18 16:44:03 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 17:22:41 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,16 @@ void    image_zoom_mouse(double ydelta, mlx_t *mlx, t_canvas *cvs)
 	cvs->x_coordinate_zero += (x_start_size - (WIDTH * cvs->x_increments)) / 2;
 	cvs->y_coordinate_zero -= (y_start_size - (HEIGHT * cvs->y_decrements)) / 2;
 	mlx_set_mouse_pos(mlx, WIDTH/2, HEIGHT/2);
+}
+
+void	show_menu(mlx_t *mlx)
+{
+	int y;
+
+	y = 0;
+	mlx_put_string(mlx, "WASD or arrows: Move up/left/down/right", 10, y += 20);
+	mlx_put_string(mlx, "-/+ or scroll-wheel: Zoom in/out", 10, y += 20);
+	mlx_put_string(mlx, "C: Print canvas values", 10, y += 20);
+	mlx_put_string(mlx, "F: Show/hide FPS", 10, y += 20);
+	mlx_put_string(mlx, "Q or ESC: Exit program", 10, y += 20);
 }
