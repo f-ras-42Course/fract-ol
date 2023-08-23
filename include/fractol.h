@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/23 15:46:52 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 16:32:54 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@
 typedef struct s_mlx_data
 {
 	mlx_t		*mlx;
-	mlx_image_t	*background;
 	mlx_image_t *image;
 }	t_mlx_data;
 
@@ -60,11 +59,6 @@ typedef struct t_all
 	t_canvas	canvas;
 	uint32_t	color_scheme[MAX_ITERATION + 1];
 }	t_all;
-
-// typedef enum e_zoom_mode	{minus, plus}	t_zoom_mode;
-
-//Background
-mlx_image_t	*draw_rectangle(mlx_t *mlx, int width, int height, unsigned int color);
 
 //Fractal
 bool	create_fractal(t_mlx_data *window, t_canvas *canvas, uint32_t color_scheme[]);
