@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:54:51 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/23 15:44:02 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 21:40:59 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,17 @@ mlx_image_t	*draw_mandelbrot(mlx_image_t *mandelbrot, t_canvas *canvas, uint32_t
 
 void	put_fractal_pixel(mlx_image_t *mandelbrot, int  pixel_pos[], double canvas_pos[], uint32_t color_scheme[])
 {
+	static int	counter;
 	int			in_set_check;
 
 	in_set_check = calculate_mandelbrot(canvas_pos[X], canvas_pos[Y]);
-	mlx_put_pixel(mandelbrot, pixel_pos[X], pixel_pos[Y], color_scheme[in_set_check]);
+	if (in_set_check == counter)
+		mlx_put_pixel(mandelbrot, pixel_pos[X], pixel_pos[Y], COLORPSYC);
+	else
+		mlx_put_pixel(mandelbrot, pixel_pos[X], pixel_pos[Y], color_scheme[in_set_check]);
+	if (pixel_pos[X] == WIDTH - 1 && pixel_pos[Y] == HEIGHT - 1)
+		counter++;
+
 }
 
 int	calculate_mandelbrot(double x_constant, double y_constant)

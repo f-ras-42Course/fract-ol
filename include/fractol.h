@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/23 21:15:07 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 21:39:38 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@
 # define MENU_INSTRUCTIONS 7
 # define X 0
 # define Y 1
-# define COLOR1 0x424242ff
-# define COLOR2 0x6432ffff
+# define COLOR1 0x541010ff
+# define COLOR2 0x424242ff
+# define COLORPSYC 0xEFEF5Cff
 # define BLACK	0x000000ff
 
 typedef struct s_mlx_data
