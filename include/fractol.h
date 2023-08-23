@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/22 21:31:00 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 15:46:52 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct t_all
 {
 	t_mlx_data	window;
 	t_canvas	canvas;
+	uint32_t	color_scheme[MAX_ITERATION + 1];
 }	t_all;
 
 // typedef enum e_zoom_mode	{minus, plus}	t_zoom_mode;
@@ -66,14 +67,14 @@ typedef struct t_all
 mlx_image_t	*draw_rectangle(mlx_t *mlx, int width, int height, unsigned int color);
 
 //Fractal
-bool		create_fractal(t_mlx_data *window, t_canvas *canvas);
-bool		insert_fractal(t_mlx_data *window);
-bool		init_fractal(t_mlx_data *window, t_canvas *canvas);
-void		put_fractal_pixel(mlx_image_t *mandelbrot, int  pixel_pos[], double canvas_pos[]);
+bool	create_fractal(t_mlx_data *window, t_canvas *canvas, uint32_t color_scheme[]);
+bool	insert_fractal(t_mlx_data *window);
+bool	init_fractal(t_mlx_data *window, t_canvas *canvas, uint32_t color_scheme[]);
+void	put_fractal_pixel(mlx_image_t *mandelbrot, int pixel_pos[], double canvas_pos[], uint32_t color_scheme[]);
 
 //Types
-mlx_image_t	*init_mandelbrot(mlx_t *mlx, t_canvas *canvas);
-mlx_image_t	*draw_mandelbrot(mlx_image_t *mandelbrot, t_canvas *canvas);
+mlx_image_t	*init_mandelbrot(mlx_t *mlx, t_canvas *canvas, uint32_t color_scheme[]);
+mlx_image_t	*draw_mandelbrot(mlx_image_t *mandelbrot, t_canvas *canvas, uint32_t color_scheme[]);
 
 int	calculate_mandelbrot(double x_constant, double y_constant);
 
@@ -86,7 +87,7 @@ bool	load_hooks(t_all *data);
 void	loop_hooks(void *param);
 void	key_hooks(mlx_key_data_t keydata, void *param);
 void	scroll_hooks(double xdelta, double ydelta, void* param);
-void	image_hooks(t_mlx_data *window, t_canvas *canvas);
+void	image_hooks(t_mlx_data *window, t_canvas *canvas, uint32_t color_scheme[]);
 void	show_fps(bool key_press);
 void	good_bye_X(void *param);
 

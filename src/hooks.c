@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/23 14:14:10 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/23 15:46:12 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	loop_hooks(void *param)
 	if (mlx_is_key_down(data->window.mlx, MLX_KEY_ESCAPE)\
 		|| mlx_is_key_down(data->window.mlx, MLX_KEY_Q))
 		mlx_close_window(data->window.mlx);
-	image_hooks(&data->window, &data->canvas);
+	image_hooks(&data->window, &data->canvas, data->color_scheme);
 	show_fps(0);
 }
 
@@ -66,7 +66,7 @@ void	scroll_hooks(double xdelta, double ydelta, void* param)
 		image_zoom_mouse(ydelta, data->window.mlx, &data->canvas);
 }
 
-void	image_hooks(t_mlx_data *window, t_canvas *canvas)
+void	image_hooks(t_mlx_data *window, t_canvas *canvas, uint32_t color_scheme[])
 {
-	draw_mandelbrot(window->image, canvas);
+	draw_mandelbrot(window->image, canvas, color_scheme);
 }
