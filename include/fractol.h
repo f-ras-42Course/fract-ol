@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/23 22:27:15 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/24 14:02:04 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # define PSYC_MODE MAX_ITERATION+1
 # define COLOR1 0x541010ff
 # define COLOR2 0x424242ff
-# define COLORPSYC 0xEFEF5Cff
+# define COLORPSYC 0XFFFF99ff
 # define BLACK	0x000000ff
 
 typedef struct s_mlx_data
