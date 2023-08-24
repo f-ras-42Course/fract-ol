@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/24 16:43:33 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/24 18:08:07 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	key_hooks(mlx_key_data_t keydata, void *param)
 		if (keydata.key == MLX_KEY_O)
 			other_color(data->color_scheme, data->color_options);
 		if (keydata.key == MLX_KEY_U)
-			toggle_ultimate_psycmode(data->color_scheme);
+			toggle_ultimate_psycmode(data->color_scheme, -2);
 		image_move_keys(keydata, canvas);
 	}
 }

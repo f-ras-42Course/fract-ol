@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/24 16:45:52 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/24 18:03:56 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int		rgba2color(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
 void	init_color_scheme(uint32_t start_color, uint8_t r_o, uint8_t g_o,\
 			uint8_t b_o, uint32_t color_scheme[]);
 void	toggle_psycmode(uint32_t color_scheme[]);
-void	toggle_ultimate_psycmode(uint32_t color_scheme[]);
+void	toggle_ultimate_psycmode(uint32_t color_scheme[], int toggle_psycmode_check);
 void	init_color_options(uint32_t color_options[]);
 void	other_color(uint32_t color_scheme[], uint32_t color_options[]);
 

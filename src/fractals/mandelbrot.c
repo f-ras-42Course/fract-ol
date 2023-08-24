@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:54:51 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/24 16:23:09 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/24 18:09:29 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	put_fractal_pixel(mlx_image_t *mandelbrot, int  pixel_pos[], double canvas_
 	int			in_set_check;
 
 	in_set_check = calculate_mandelbrot(canvas_pos[X], canvas_pos[Y]);
+	if (color_scheme[ULTIMATE_PSYC_MODE] && pixel_pos[X] == WIDTH - 1 && pixel_pos[Y] == HEIGHT - 1)
+		toggle_ultimate_psycmode(color_scheme, psychedelic_depth);
 	if (in_set_check == psychedelic_depth)
 		mlx_put_pixel(mandelbrot, pixel_pos[X], pixel_pos[Y], COLORPSYC);
 	else
@@ -62,9 +64,9 @@ void	put_fractal_pixel(mlx_image_t *mandelbrot, int  pixel_pos[], double canvas_
 	if (pixel_pos[X] == WIDTH - 1 && pixel_pos[Y] == HEIGHT - 1)
 	{
 		if (color_scheme[PSYC_MODE])
-		psychedelic_depth++;
+			psychedelic_depth++;
 		if (!color_scheme[PSYC_MODE] && psychedelic_depth > -1)
-		psychedelic_depth--;
+			psychedelic_depth--;
 	}
 	if (psychedelic_depth > MAX_ITERATION)
 		psychedelic_depth--;
