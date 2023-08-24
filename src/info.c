@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:54 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/24 19:03:02 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/24 19:12:07 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,15 @@ void	good_bye_X(void *param)
 
 void	show_canvas_data(t_canvas canvas)
 {
-	printf("CANVAS DATA = \
-	// \ncanvas->x_coordinate_zero = %f\
-	// \ncanvas->y_coordinate_zero = %f\
-	// \ncanvas->x_increments = %f\
-	// \ncanvas->y_decrements= %f\n", canvas.x_coordinate_zero, canvas.y_coordinate_zero, canvas.x_increments, canvas.y_decrements);
+	printf("-----------------------------------------\n\
+		\n|  CANVAS DATA = \
+		\n|  canvas->x_coordinate_zero = %f\
+		\n|  canvas->y_coordinate_zero = %f\
+		\n|  canvas->x_increments = %f\
+		\n|  canvas->y_decrements= %f\n\
+	\n-----------------------------------------\n", \
+	canvas.x_coordinate_zero, canvas.y_coordinate_zero,\
+	canvas.x_increments, canvas.y_decrements);
 }
 void	show_menu(mlx_t *mlx, mlx_image_t *menu[])
 {
