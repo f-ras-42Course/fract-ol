@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:54:51 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/23 22:24:50 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/24 16:23:09 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void	put_fractal_pixel(mlx_image_t *mandelbrot, int  pixel_pos[], double canvas_
 		if (!color_scheme[PSYC_MODE] && psychedelic_depth > -1)
 		psychedelic_depth--;
 	}
+	if (psychedelic_depth > MAX_ITERATION)
+		psychedelic_depth--;
 }
 
 int	calculate_mandelbrot(double x_constant, double y_constant)
