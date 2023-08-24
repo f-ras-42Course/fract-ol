@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/24 18:03:56 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/24 18:34:16 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,9 @@ void	put_fractal_pixel(mlx_image_t *mandelbrot, int pixel_pos[], double canvas_p
 mlx_image_t	*init_mandelbrot(mlx_t *mlx, t_canvas *canvas, uint32_t color_scheme[]);
 mlx_image_t	*draw_mandelbrot(mlx_image_t *mandelbrot, t_canvas *canvas, uint32_t color_scheme[]);
 
-int	calculate_mandelbrot(double x_constant, double y_constant);
+int		calculate_mandelbrot(double x_constant, double y_constant);
 
 void	init_canvas(t_canvas *canvas);
-
 
 // Hooks
 
@@ -98,6 +97,7 @@ void	good_bye_X(void *param);
 void	image_move_keys(mlx_key_data_t keydata, t_canvas *canvas);
 void	image_zoom_keys(mlx_key_data_t keydata, t_canvas *cvs);
 void    image_zoom_mouse(double ydelta, mlx_t *mlx, t_canvas *cvs);
+void	key_presses(mlx_key_data_t keydata, t_all *data);
 
 void	show_canvas_data(t_canvas canvas);
 

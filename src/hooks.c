@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/24 18:08:07 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/24 18:33:02 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,32 +37,36 @@ void	loop_hooks(void *param)
 void	key_hooks(mlx_key_data_t keydata, void *param)
 {
 	t_all		*data;
-	t_canvas	*canvas;
 	
 	data = param;
-	canvas = &data->canvas;
 	if (keydata.action == MLX_PRESS)
-	{
-		if (keydata.key == MLX_KEY_ESCAPE || keydata.key == MLX_KEY_Q)
-			mlx_close_window(data->window.mlx);
-		if (keydata.key == MLX_KEY_F)
-			show_fps(true);
-		if (keydata.key == MLX_KEY_C)
-			show_canvas_data(*canvas);
-		if (keydata.key == MLX_KEY_MINUS || keydata.key == MLX_KEY_EQUAL)
-			image_zoom_keys(keydata, canvas);
-		if (keydata.key == MLX_KEY_R)
-			init_canvas(canvas);
-		if (keydata.key == MLX_KEY_M)
-			toggle_menu(data->window.menu);
-		if (keydata.key == MLX_KEY_P)
-			toggle_psycmode(data->color_scheme);
-		if (keydata.key == MLX_KEY_O)
-			other_color(data->color_scheme, data->color_options);
-		if (keydata.key == MLX_KEY_U)
-			toggle_ultimate_psycmode(data->color_scheme, -2);
-		image_move_keys(keydata, canvas);
-	}
+		key_presses(keydata, data);
+}
+
+void	key_presses(mlx_key_data_t keydata, t_all *data)
+{
+	t_canvas	*canvas;
+
+	canvas = &data->canvas;
+	if (keydata.key == MLX_KEY_ESCAPE || keydata.key == MLX_KEY_Q)
+		mlx_close_window(data->window.mlx);
+	if (keydata.key == MLX_KEY_F)
+		show_fps(true);
+	if (keydata.key == MLX_KEY_C)
+		show_canvas_data(*canvas);
+	if (keydata.key == MLX_KEY_MINUS || keydata.key == MLX_KEY_EQUAL)
+		image_zoom_keys(keydata, canvas);
+	if (keydata.key == MLX_KEY_R)
+		init_canvas(canvas);
+	if (keydata.key == MLX_KEY_M)
+		toggle_menu(data->window.menu);
+	if (keydata.key == MLX_KEY_P)
+		toggle_psycmode(data->color_scheme);
+	if (keydata.key == MLX_KEY_O)
+		other_color(data->color_scheme, data->color_options);
+	if (keydata.key == MLX_KEY_U)
+		toggle_ultimate_psycmode(data->color_scheme, -2);
+	image_move_keys(keydata, canvas);
 }
 
 void	scroll_hooks(double xdelta, double ydelta, void* param)
