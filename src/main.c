@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/24 16:27:36 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/24 16:44:36 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(void)
 	init_color_options(data.color_options);
 	init_color_scheme(data.color_options[0], 1, 1, 1, data.color_scheme);
 	data.color_scheme[PSYC_MODE] = false;
+	data.color_scheme[ULTIMATE_PSYC_MODE] = false;
 	if(!init_fractal(&data.window, &data.canvas, data.color_scheme))
 		return (unexpected_crash(data.window.mlx), EXIT_FAILURE);
 	show_menu(data.window.mlx, data.window.menu);

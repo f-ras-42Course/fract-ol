@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 19:36:03 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/24 16:28:36 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/24 16:44:04 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,12 @@ void	toggle_psycmode(uint32_t color_scheme[])
 		color_scheme[PSYC_MODE] = false;
 	else
 		color_scheme[PSYC_MODE] = true;
+}
+
+void	toggle_ultimate_psycmode(uint32_t color_scheme[])
+{
+	if (color_scheme[ULTIMATE_PSYC_MODE] == true)
+		color_scheme[ULTIMATE_PSYC_MODE] = false;
+	else
+		color_scheme[ULTIMATE_PSYC_MODE] = true;
 }

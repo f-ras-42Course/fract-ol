@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/24 16:03:00 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/24 16:45:52 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@
 # define WIDTH 1440
 # define HEIGHT 900
 # define MAX_ITERATION 250
-# define MENU_INSTRUCTIONS 9
+# define MENU_INSTRUCTIONS 10
 # define X 0
 # define Y 1
 # define PSYC_MODE MAX_ITERATION+1
+# define ULTIMATE_PSYC_MODE MAX_ITERATION+2
 # define COLORX	5
 # define COLOR0 0x541010ff
 # define COLOR1 0x424242ff
@@ -65,7 +66,7 @@ typedef struct t_all
 {
 	t_mlx_data	window;
 	t_canvas	canvas;
-	uint32_t	color_scheme[MAX_ITERATION + 2];
+	uint32_t	color_scheme[MAX_ITERATION + 3];
 	uint32_t	color_options[COLORX];
 }	t_all;
 
@@ -109,6 +110,7 @@ int		rgba2color(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
 void	init_color_scheme(uint32_t start_color, uint8_t r_o, uint8_t g_o,\
 			uint8_t b_o, uint32_t color_scheme[]);
 void	toggle_psycmode(uint32_t color_scheme[]);
+void	toggle_ultimate_psycmode(uint32_t color_scheme[]);
 void	init_color_options(uint32_t color_options[]);
 void	other_color(uint32_t color_scheme[], uint32_t color_options[]);
 
