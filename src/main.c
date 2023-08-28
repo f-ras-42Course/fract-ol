@@ -6,17 +6,20 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/16 19:48:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/28 22:04:57 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 00:43:46 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
 	t_all			data;
 
-	data.canvas.fractal_type = MANDELBROT;
+	
+	data.canvas.fractal_type = init_args(argc, argv, data.canvas.julia);
+	if (data.canvas.fractal_type == -1)
+		return (EXIT_FAILURE);
 	data.window.mlx = mlx_init(WIDTH, HEIGHT, "Fractality! - yeah", false);
 	if (!data.window.mlx)
 		return (unexpected_crash(data.window.mlx), EXIT_FAILURE);

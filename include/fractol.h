@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/28 22:22:05 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 00:24:45 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,14 @@ typedef struct t_all
 	uint32_t		color_scheme[MAX_ITERATION + 3];
 	uint32_t		color_options[COLORX];
 }	t_all;
+
+// Args
+
+int			init_args(int argc, char *argv[], float julia[]);
+bool		julia_decimals_correct(const char *str1, const char *str2);
+bool		julia_decimals_checker(const char *str);
+void		invalid_julia(void);
+void		invalid_args(void);
 
 // Image
 
