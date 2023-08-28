@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/24 18:33:02 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/28 18:23:35 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	loop_hooks(void *param)
 		mlx_close_window(data->window.mlx);
 	if (data->color_scheme[ULTIMATE_PSYC_MODE])
 		other_color(data->color_scheme, data->color_options);
-	image_hooks(&data->window, &data->canvas, data->color_scheme);
+	draw_fractal(data->window.fractal, data->canvas, data->color_scheme);
 	show_fps(0);
 }
 
@@ -78,9 +78,4 @@ void	scroll_hooks(double xdelta, double ydelta, void* param)
 	data = param;
 	if (ydelta != 0)
 		image_zoom_mouse(ydelta, data->window.mlx, &data->canvas);
-}
-
-void	image_hooks(t_mlx_data *window, t_canvas *canvas, uint32_t color_scheme[])
-{
-	draw_mandelbrot(window->image, canvas, color_scheme);
 }

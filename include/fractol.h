@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/24 18:34:16 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/28 20:58:02 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,20 @@
 # define COLORPSYC 0xFFFF99ff
 # define BLACK	0x000000ff
 
+# define MANDELBROT 0
+# define JULIA 1
+# define BURNINGSHIP 2
+
 typedef struct s_mlx_data
 {
 	mlx_t		*mlx;
-	mlx_image_t *image;
+	mlx_image_t *fractal;
 	mlx_image_t *menu[MENU_INSTRUCTIONS];
 }	t_mlx_data;
 
 typedef struct s_canvas
 {
+	int		fractal_type;
 	double	x_coordinate_zero;
 	double	y_coordinate_zero;
 	double	x_size;
@@ -60,27 +65,32 @@ typedef struct s_canvas
 	double	y_decrements;
 	double	plus_zoom;
 	double	minus_zoom;
+	float	julia[2];
 }	t_canvas;
 
 typedef struct t_all
 {
-	t_mlx_data	window;
-	t_canvas	canvas;
-	uint32_t	color_scheme[MAX_ITERATION + 3];
-	uint32_t	color_options[COLORX];
+	t_mlx_data		window;
+	t_canvas		canvas;
+	uint32_t		color_scheme[MAX_ITERATION + 3];
+	uint32_t		color_options[COLORX];
 }	t_all;
 
-//Fractal
-bool	create_fractal(t_mlx_data *window, t_canvas *canvas, uint32_t color_scheme[]);
-bool	insert_fractal(t_mlx_data *window);
-bool	init_fractal(t_mlx_data *window, t_canvas *canvas, uint32_t color_scheme[]);
-void	put_fractal_pixel(mlx_image_t *mandelbrot, int pixel_pos[], double canvas_pos[], uint32_t color_scheme[]);
+// Image
+ /// TODOOOOO Pointer naar data weghalen en return  zetten naar fractal (image_t *) ipv bool.
+bool	init_image(t_mlx_data *window, t_canvas canvas, uint32_t color_scheme[]);
+void	put_pixels(mlx_image_t *fractal, int pixel_pos[], int in_set_check, uint32_t color_scheme[]);
 
-//Types
-mlx_image_t	*init_mandelbrot(mlx_t *mlx, t_canvas *canvas, uint32_t color_scheme[]);
-mlx_image_t	*draw_mandelbrot(mlx_image_t *mandelbrot, t_canvas *canvas, uint32_t color_scheme[]);
+// Fractals
 
-int		calculate_mandelbrot(double x_constant, double y_constant);
+mlx_image_t	*init_fractal(mlx_t *mlx, t_canvas canvas, uint32_t color_scheme[]);
+mlx_image_t	*draw_fractal(mlx_image_t *fractal, t_canvas canvas, uint32_t color_scheme[]);
+
+// Types
+
+int		calculate_fractal(double canvas_x, double canvas_y, t_canvas canvas);
+int		mandelbrot_calc(double x_constant, double y_constant);
+int		julia_calc(double x, double y, float julia[]);
 
 void	init_canvas(t_canvas *canvas);
 
@@ -90,7 +100,6 @@ bool	load_hooks(t_all *data);
 void	loop_hooks(void *param);
 void	key_hooks(mlx_key_data_t keydata, void *param);
 void	scroll_hooks(double xdelta, double ydelta, void* param);
-void	image_hooks(t_mlx_data *window, t_canvas *canvas, uint32_t color_scheme[]);
 void	show_fps(bool key_press);
 void	good_bye_X(void *param);
 
