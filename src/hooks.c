@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/28 18:23:35 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/28 22:05:34 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ bool	load_hooks(t_all *data)
 {
 	mlx_key_hook(data->window.mlx, key_hooks, data);
 	mlx_scroll_hook(data->window.mlx, scroll_hooks, data);
-	mlx_close_hook(data->window.mlx, good_bye_X, NULL);
+	mlx_close_hook(data->window.mlx, good_bye_x, NULL);
 	return (mlx_loop_hook(data->window.mlx, loop_hooks, data));
 }
 
 void	loop_hooks(void *param)
 {
-	t_all *data;
+	t_all	*data;
 
 	data = param;
-	if (mlx_is_key_down(data->window.mlx, MLX_KEY_ESCAPE)\
+	if (mlx_is_key_down(data->window.mlx, MLX_KEY_ESCAPE) \
 		|| mlx_is_key_down(data->window.mlx, MLX_KEY_Q))
 		mlx_close_window(data->window.mlx);
 	if (data->color_scheme[ULTIMATE_PSYC_MODE])
@@ -36,8 +36,8 @@ void	loop_hooks(void *param)
 
 void	key_hooks(mlx_key_data_t keydata, void *param)
 {
-	t_all		*data;
-	
+	t_all	*data;
+
 	data = param;
 	if (keydata.action == MLX_PRESS)
 		key_presses(keydata, data);
@@ -69,7 +69,7 @@ void	key_presses(mlx_key_data_t keydata, t_all *data)
 	image_move_keys(keydata, canvas);
 }
 
-void	scroll_hooks(double xdelta, double ydelta, void* param)
+void	scroll_hooks(double xdelta, double ydelta, void *param)
 {
 	t_all		*data;
 

@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/28 21:03:31 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/28 22:22:05 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,32 +26,35 @@
 #  define DEBUG 0
 # endif
 
-# define WIDTH 1440
-# define HEIGHT 900
-# define MAX_ITERATION 250
-# define MENU_INSTRUCTIONS 10
-# define X 0
-# define Y 1
-# define PSYC_MODE MAX_ITERATION+1
-# define ULTIMATE_PSYC_MODE MAX_ITERATION+2
-# define COLORX	5
-# define COLOR0 0x541010ff
-# define COLOR1 0x424242ff
-# define COLOR2	0x1F2D64ff
-# define COLOR3 0x7F6440ff
-# define COLOR4 0x105054ff
-# define COLORPSYC 0xFFFF99ff
-# define BLACK	0x000000ff
+# define WIDTH 				1440
+# define HEIGHT				900
 
-# define MANDELBROT 0
-# define JULIA 1
-# define BURNINGSHIP 2
+# define MAX_ITERATION		250
+# define PSYC_MODE			251
+# define ULTIMATE_PSYC_MODE	252
+
+# define MANDELBROT			0
+# define JULIA				1
+# define BURNINGSHIP		2
+
+# define COLORX				5
+# define COLOR0				0x541010ff
+# define COLOR1				0x424242ff
+# define COLOR2				0x1F2D64ff
+# define COLOR3				0x7F6440ff
+# define COLOR4				0x105054ff
+# define COLORPSYC			0xFFFF99ff
+# define BLACK				0x000000ff
+
+# define X					0
+# define Y					1
+# define MENU_LINES			10
 
 typedef struct s_mlx_data
 {
 	mlx_t		*mlx;
-	mlx_image_t *fractal;
-	mlx_image_t *menu[MENU_INSTRUCTIONS];
+	mlx_image_t	*fractal;
+	mlx_image_t	*menu[MENU_LINES];
 }	t_mlx_data;
 
 typedef struct s_canvas
@@ -78,49 +81,54 @@ typedef struct t_all
 
 // Image
 
-bool	init_image(t_mlx_data *window, t_canvas canvas, uint32_t color_scheme[]);
-void	put_pixels(mlx_image_t *fractal, int pixel_pos[], int in_set_check, uint32_t color_scheme[]);
+bool		init_image(t_mlx_data *window, t_canvas canvas, \
+			uint32_t color_scheme[]);
+void		put_pixels(mlx_image_t *fractal, int pixel_pos[], \
+			int in_set_check, uint32_t color_scheme[]);
 
 // Fractals
 
 mlx_image_t	*init_fractal(mlx_t *mlx, t_canvas canvas, uint32_t color_scheme[]);
-mlx_image_t	*draw_fractal(mlx_image_t *fractal, t_canvas canvas, uint32_t color_scheme[]);
+mlx_image_t	*draw_fractal(mlx_image_t *fractal, t_canvas canvas, \
+			uint32_t color_scheme[]);
 
 // Types
 
-int		calculate_fractal(double canvas_x, double canvas_y, t_canvas canvas);
-int		mandelbrot_calc(double x_constant, double y_constant);
-int		julia_calc(double x, double y, float julia[]);
+int			calculate_fractal(double canvas_x, \
+			double canvas_y, t_canvas canvas);
+int			mandelbrot_calc(double x_constant, double y_constant);
+int			julia_calc(double x, double y, float julia[]);
 
-void	init_canvas(t_canvas *canvas);
+void		init_canvas(t_canvas *canvas);
 
 // Hooks
 
-bool	load_hooks(t_all *data);
-void	loop_hooks(void *param);
-void	key_hooks(mlx_key_data_t keydata, void *param);
-void	scroll_hooks(double xdelta, double ydelta, void* param);
-void	show_fps(bool key_press);
-void	good_bye_X(void *param);
+bool		load_hooks(t_all *data);
+void		loop_hooks(void *param);
+void		key_hooks(mlx_key_data_t keydata, void *param);
+void		scroll_hooks(double xdelta, double ydelta, void *param);
+void		show_fps(bool key_press);
+void		good_bye_x(void *param);
 
-void	image_move_keys(mlx_key_data_t keydata, t_canvas *canvas);
-void	image_zoom_keys(mlx_key_data_t keydata, t_canvas *cvs);
-void    image_zoom_mouse(double ydelta, mlx_t *mlx, t_canvas *cvs);
-void	key_presses(mlx_key_data_t keydata, t_all *data);
+void		image_move_keys(mlx_key_data_t keydata, t_canvas *canvas);
+void		image_zoom_keys(mlx_key_data_t keydata, t_canvas *cvs);
+void		image_zoom_mouse(double ydelta, mlx_t *mlx, t_canvas *cvs);
+void		key_presses(mlx_key_data_t keydata, t_all *data);
 
-void	show_canvas_data(t_canvas canvas);
+void		show_canvas_data(t_canvas canvas);
 
-void	show_menu(mlx_t *mlx, mlx_image_t *menu[]);
-void	toggle_menu(mlx_image_t	**menu);
+void		show_menu(mlx_t *mlx, mlx_image_t *menu[]);
+void		toggle_menu(mlx_image_t	**menu);
 
 // Color
 
-int		rgba2color(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
-void	init_color_scheme(uint32_t start_color, uint8_t r_o, uint8_t g_o,\
-			uint8_t b_o, uint32_t color_scheme[]);
-void	toggle_psycmode(uint32_t color_scheme[]);
-void	toggle_ultimate_psycmode(uint32_t color_scheme[], int toggle_psycmode_check);
-void	init_color_options(uint32_t color_options[]);
-void	other_color(uint32_t color_scheme[], uint32_t color_options[]);
+int			rgba2color(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
+void		init_color_scheme(uint32_t start_color, uint8_t rgb_increment, \
+			uint32_t color_scheme[]);
+void		toggle_psycmode(uint32_t color_scheme[]);
+void		toggle_ultimate_psycmode(uint32_t color_scheme[], \
+			int toggle_psycmode_check);
+void		init_color_options(uint32_t color_options[]);
+void		other_color(uint32_t color_scheme[], uint32_t color_options[]);
 
 #endif
