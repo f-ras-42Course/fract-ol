@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/28 20:58:02 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/28 21:03:31 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ typedef struct t_all
 }	t_all;
 
 // Image
- /// TODOOOOO Pointer naar data weghalen en return  zetten naar fractal (image_t *) ipv bool.
+
 bool	init_image(t_mlx_data *window, t_canvas canvas, uint32_t color_scheme[]);
 void	put_pixels(mlx_image_t *fractal, int pixel_pos[], int in_set_check, uint32_t color_scheme[]);
 
