@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:54 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 14:54:20 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 15:32:53 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ char	*get(t_menu_lines instruction)
 	if (instruction == u_ultimate_psychedelic)
 		return ("U: Toggle ULTIMATE psychedelic mode");
 	if (instruction == julia_coordinates)
-		return ("Left mouse: Get Julia coordinates");
+		return ("Left mouse: Get julia coordinates");
 	if (instruction == julia_move1)
 		return ("CTRL + left mouse: Move to Julia-");
 	if (instruction == julia_move2)

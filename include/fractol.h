@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 14:51:16 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 15:30:49 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,12 @@ void		show_canvas_data(t_canvas canvas);
 void		show_menu(mlx_t *mlx, mlx_image_t *menu[]);
 void		toggle_menu(mlx_image_t	*menu[]);
 char		*get(t_menu_lines instruction);
+
+// Mandelbrot and Julia interconnection
+
+void	switch_to_julia(t_all *data, float julia[]);
+void	switch_to_mandelbrot(t_all *data);
+void	show_julia_coordinates(t_all *data, float julia[]);
 
 // Color
 
