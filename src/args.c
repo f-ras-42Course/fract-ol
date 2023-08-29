@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 23:08:57 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 00:56:03 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 02:20:52 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ bool	julia_decimals_checker(const char *str)
 		return (false);
 	while (fr_isdigit(str[i]))
 		i++;
-	if (str[i] != '\0' || i > 8)
+	if (str[i] != '\0' || i > 9)
 		return (false);
 	return (true);
 }

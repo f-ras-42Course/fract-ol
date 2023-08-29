@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:54 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/28 21:46:12 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 02:32:06 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,8 @@ void	show_menu(mlx_t *mlx, mlx_image_t *menu[])
 	mlx_put_string(mlx, "P: Toggle psychedelic mode", x, y += 20);
 	menu[item++] = \
 	mlx_put_string(mlx, "U: Toggle ULTIMATE psychedelic mode", x, y += 20);
+	mlx_put_string(mlx, "Left mouse: Get Julia coordinates", x, y += 20);
+	mlx_put_string(mlx, "CTRL + left mouse: Move to Julia-", x, y += 20);
+	mlx_put_string(mlx, "coordinates or back to mandelbrot", x, y += 20);
 	menu[item++] = mlx_put_string(mlx, "Q or ESC: Exit program", x, y += 20);
 }

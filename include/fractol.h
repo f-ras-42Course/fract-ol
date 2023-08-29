@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 00:24:45 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 02:32:28 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 
 # define X					0
 # define Y					1
-# define MENU_LINES			10
+# define MENU_LINES			13
 
 typedef struct s_mlx_data
 {
@@ -114,6 +114,9 @@ void		init_canvas(t_canvas *canvas);
 bool		load_hooks(t_all *data);
 void		loop_hooks(void *param);
 void		key_hooks(mlx_key_data_t keydata, void *param);
+void 		mouse_hooks(mouse_key_t button, action_t action, \
+			modifier_key_t mods, void* param);
+void		julia_coordinates_from_mouse(mlx_t *mlx, t_canvas *canvas);
 void		scroll_hooks(double xdelta, double ydelta, void *param);
 void		show_fps(bool key_press);
 void		good_bye_x(void *param);

@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/28 22:05:34 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 02:21:52 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ bool	load_hooks(t_all *data)
 	mlx_key_hook(data->window.mlx, key_hooks, data);
 	mlx_scroll_hook(data->window.mlx, scroll_hooks, data);
 	mlx_close_hook(data->window.mlx, good_bye_x, NULL);
+	mlx_mouse_hook(data->window.mlx, mouse_hooks, data);
 	return (mlx_loop_hook(data->window.mlx, loop_hooks, data));
 }
 
@@ -78,4 +79,50 @@ void	scroll_hooks(double xdelta, double ydelta, void *param)
 	data = param;
 	if (ydelta != 0)
 		image_zoom_mouse(ydelta, data->window.mlx, &data->canvas);
+}
+
+void 	mouse_hooks(mouse_key_t button, action_t action, \
+		modifier_key_t mods, void* param)
+{
+	t_all	*data;
+
+	data = param;
+	if (action == MLX_PRESS)
+	{
+		if (mods == MLX_CONTROL && button == MLX_MOUSE_BUTTON_LEFT)
+		{
+			if (data->canvas.fractal_type == MANDELBROT)
+			{
+				julia_coordinates_from_mouse(data->window.mlx, &data->canvas);
+				printf("Moved to Julia: %f, %f\n", data->canvas.julia[X], data->canvas.julia[Y]);
+				data->canvas.fractal_type = JULIA;
+			}
+			else if (data->canvas.fractal_type == JULIA)
+			{
+				init_canvas(&data->canvas);
+				data->canvas.fractal_type = MANDELBROT;
+				printf("Changed to Mandelbrot.\n");
+			}
+		}
+		else if (button == MLX_MOUSE_BUTTON_LEFT && data->canvas.fractal_type == MANDELBROT)
+		{
+			julia_coordinates_from_mouse(data->window.mlx, &data->canvas);
+			printf("Julia coordinates are: %f, %f\n", data->canvas.julia[X], data->canvas.julia[Y]);
+		}
+
+	}
+}
+
+void	julia_coordinates_from_mouse(mlx_t *mlx, t_canvas *canvas)
+{
+	int32_t	x_mouse_pos;
+	int32_t	y_mouse_pos;
+
+	x_mouse_pos = 0;
+	y_mouse_pos = 0;
+	mlx_get_mouse_pos(mlx, &x_mouse_pos, &y_mouse_pos);
+	canvas->julia[X] = \
+	canvas->x_coordinate_zero + (canvas->x_increments * x_mouse_pos);
+	canvas->julia[Y] = \
+	canvas->y_coordinate_zero - (canvas->y_decrements * y_mouse_pos);
 }
