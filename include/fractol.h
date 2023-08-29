@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 15:30:49 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 18:29:50 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 
 # define WIDTH 				1440
 # define HEIGHT				900
+# define PIP_WIDTH 			432
+# define PIP_HEIGHT			270
 
 # define MAX_ITERATION		250
 # define PSYC_MODE			251
@@ -54,6 +56,7 @@ typedef struct s_mlx_data
 {
 	mlx_t		*mlx;
 	mlx_image_t	*fractal;
+	mlx_image_t	*fractal_pip;
 	mlx_image_t	*menu[MENU_LINES];
 }	t_mlx_data;
 
@@ -75,6 +78,7 @@ typedef struct s_all
 {
 	t_mlx_data		window;
 	t_canvas		canvas;
+	t_canvas		canvas_pip;
 	uint32_t		color_scheme[MAX_ITERATION + 3];
 	uint32_t		color_options[COLORX];
 }	t_all;
@@ -168,4 +172,25 @@ void		toggle_ultimate_psycmode(uint32_t color_scheme[], \
 void		init_color_options(uint32_t color_options[]);
 void		other_color(uint32_t color_scheme[], uint32_t color_options[]);
 
+
+
+
+// FODSK
+
+
+void	switch_to_julia(t_all *data, float julia[]);
+void	switch_to_mandelbrot(t_all *data);
+void	show_julia_coordinates(t_all *data, float julia[]);
+void	display_julia_in_pip(t_all *data, action_t action);
+void	julia_coordinates_from_mouse(mlx_t *mlx, t_canvas *canvas);
+
+bool	init_pip(t_mlx_data *window, t_canvas canvas_pip, uint32_t color_scheme[]);
+mlx_image_t	*init_pip_fractal(mlx_t *mlx, t_canvas canvas_pip, uint32_t color_scheme[]);
+mlx_image_t	*draw_pip_fractal(mlx_image_t *fractal_pip, \
+			t_canvas canvas_pip, uint32_t color_scheme[]);
+void	put_pixels_pip(mlx_image_t *fractal, \
+		int pixel_pos[], int in_set_check, uint32_t color_scheme[]);
+
+void	init_canvas_pip(t_canvas *canvas_pip);
+		
 #endif

@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/29 15:11:43 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 15:30:04 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 18:43:56 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	switch_to_julia(t_all *data, float julia[])
 {
 	julia_coordinates_from_mouse(data->window.mlx, &data->canvas);
 	printf("Moved to Julia: %f, %f\n", julia[X], julia[Y]);
+	mlx_delete_image(data->window.mlx, data->window.fractal_pip);
 	data->canvas.fractal_type = JULIA;
 }
 
@@ -34,10 +35,24 @@ void	show_julia_coordinates(t_all *data, float julia[])
 
 }
 
-// void	display_julia_in_pip(t_all *data)
-// {
-
-// }
+void	display_julia_in_pip(t_all *data, action_t action)
+{
+	if (action == MLX_PRESS)
+	{
+		//julia_pip_create():
+		init_canvas_pip(&data->canvas_pip);
+		julia_coordinates_from_mouse(data->window.mlx, &data->canvas);
+		data->canvas_pip.julia[X] = data->canvas.julia[X];
+		data->canvas_pip.julia[Y] = data->canvas.julia[Y];
+		if (!init_pip(&data->window, data->canvas_pip, data->color_scheme))
+		{
+			unexpected_crash(data->window.mlx);
+			exit(EXIT_FAILURE);
+		}
+	}
+	if (action == MLX_RELEASE)
+		mlx_delete_image(data->window.mlx, data->window.fractal_pip);
+}
 
 void	julia_coordinates_from_mouse(mlx_t *mlx, t_canvas *canvas)
 {
