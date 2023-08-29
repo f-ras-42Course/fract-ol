@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 23:07:21 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 23:59:56 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ void	scroll_hooks(double xdelta, double ydelta, void *param)
 		image_zoom_mouse(ydelta, data->window.mlx, &data->canvas);
 }
 
-void 	mouse_hooks(mouse_key_t button, action_t action, \
-		modifier_key_t mods, void* param)
+void	mouse_hooks(mouse_key_t button, action_t action, \
+		modifier_key_t mods, void *param)
 {
 	t_all	*data;
 
@@ -104,4 +104,3 @@ void 	mouse_hooks(mouse_key_t button, action_t action, \
 		mlx_delete_image(data->window.mlx, data->window.fractal_pip);
 	}
 }
-

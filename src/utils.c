@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 17:12:49 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 00:25:12 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 23:59:02 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			i;
 	unsigned char	chr1;

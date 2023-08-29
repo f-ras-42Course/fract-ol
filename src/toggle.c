@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 21:37:27 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 23:05:02 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 23:53:53 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ void	toggle_menu(mlx_image_t	*menu[])
 
 void	temp_hide_menu_for_pip(mlx_image_t *menu[], bool activate_julia_pip)
 {
-	static bool menu_active_before_call;
-	int	i;
+	static bool	menu_active_before_call;
+	int			i;
 
 	i = 0;
 	if (activate_julia_pip)

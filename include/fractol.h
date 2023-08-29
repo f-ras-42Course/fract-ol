@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 23:37:50 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 23:54:37 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ typedef enum e_menu_lines
 	p_psychedelic,
 	u_ultimate_psychedelic,
 	julia_coordinates,
-	julia_mandelbrot_switch,
+	julia_mandel_switch,
 	julia_pip,
 	q_esp_exit
 }	t_menu_lines;

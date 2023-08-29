@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/29 22:38:16 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 22:51:27 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 23:58:31 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	show_menu(mlx_t *mlx, mlx_image_t *menu[])
 	menu[item++] = mlx_put_string(mlx, get(p_psychedelic), x, y += 20);
 	menu[item++] = mlx_put_string(mlx, get(u_ultimate_psychedelic), x, y += 20);
 	menu[item++] = mlx_put_string(mlx, get(julia_coordinates), x, y += 20);
-	menu[item++] = mlx_put_string(mlx, get(julia_mandelbrot_switch), x, y += 20);
+	menu[item++] = mlx_put_string(mlx, get(julia_mandel_switch), x, y += 20);
 	menu[item++] = mlx_put_string(mlx, get2(julia_pip), x, y += 20);
 	menu[item++] = mlx_put_string(mlx, get2(q_esp_exit), x, y += 20);
 }
@@ -51,22 +51,22 @@ char	*get(t_menu_lines instruction)
 	if (instruction == m_menu)
 		return ("M: Show/hide menu");
 	if (instruction == o_other_color)
-	 	return ("O: Other color");
+		return ("O: Other color");
 	if (instruction == p_psychedelic)
 		return ("P: Toggle psychedelic mode");
 	if (instruction == u_ultimate_psychedelic)
 		return ("U: Toggle ULTIMATE psychedelic mode");
 	if (instruction == julia_coordinates)
 		return ("Right mouse: Get julia coordinates");
-	if (instruction == julia_mandelbrot_switch)
+	if (instruction == julia_mandel_switch)
 		return ("CTRL + right mouse: Switch julia/mandelbrot");
 	return (NULL);
 }
 
 char	*get2(t_menu_lines instruction)
 {
-	if(instruction == julia_pip)
-		return("Left mouse: Display julia PIP in mandelbrot");
+	if (instruction == julia_pip)
+		return ("Left mouse: Display julia PIP in mandelbrot");
 	if (instruction == q_esp_exit)
 		return ("Q or ESC: Exit program");
 	return (NULL);

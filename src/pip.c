@@ -6,15 +6,17 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/19 17:19:09 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 23:16:57 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/30 00:01:13 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-bool	init_pip(t_mlx_data *window, t_canvas canvas_pip, uint32_t color_scheme[])
+bool	init_pip(t_mlx_data *window, t_canvas canvas_pip, \
+				uint32_t color_scheme[])
 {
-	window->fractal_pip = init_pip_fractal(window->mlx, canvas_pip, color_scheme);
+	window->fractal_pip = init_pip_fractal(window->mlx, canvas_pip, \
+											color_scheme);
 	if (!window->fractal_pip)
 		return (false);
 	if (mlx_image_to_window(window->mlx, window->fractal_pip, 10, 10) == -1)
@@ -22,7 +24,8 @@ bool	init_pip(t_mlx_data *window, t_canvas canvas_pip, uint32_t color_scheme[])
 	return (true);
 }
 
-mlx_image_t	*init_pip_fractal(mlx_t *mlx, t_canvas canvas_pip, uint32_t color_scheme[])
+mlx_image_t	*init_pip_fractal(mlx_t *mlx, t_canvas canvas_pip, \
+			uint32_t color_scheme[])
 {
 	mlx_image_t	*fractal_pip;
 
@@ -61,7 +64,7 @@ mlx_image_t	*draw_pip_fractal(mlx_image_t *fractal_pip, \
 	}
 	return (fractal_pip);
 }
-	
+
 void	put_pixels_pip(mlx_image_t *fractal_pip, \
 		int pixel_pos[], int in_set_check, uint32_t color_scheme[])
 {
