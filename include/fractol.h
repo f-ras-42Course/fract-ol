@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 19:35:27 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 23:07:44 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ typedef enum e_menu_lines
 	p_psychedelic,
 	u_ultimate_psychedelic,
 	julia_coordinates,
-	julia_move1,
-	julia_move2,
+	julia_mandelbrot_switch,
+	julia_pip,
 	q_esp_exit
 }	t_menu_lines;
 
@@ -154,6 +154,7 @@ void		show_canvas_data(t_canvas canvas);
 void		show_menu(mlx_t *mlx, mlx_image_t *menu[]);
 void		toggle_menu(mlx_image_t	*menu[]);
 char		*get(t_menu_lines instruction);
+char		*get2(t_menu_lines instruction);
 
 // Mandelbrot and Julia interconnection
 
@@ -185,6 +186,7 @@ void	show_julia_coordinates(t_all *data, float julia[]);
 void	init_julia_in_pip(t_all *data, action_t action);
 void	refresh_julia_in_pip(t_all *data);
 void	julia_coordinates_from_mouse(mlx_t *mlx, t_canvas *canvas);
+void	temp_hide_menu_for_pip(mlx_image_t *menu[], bool activate_julia_pip);
 
 bool	init_pip(t_mlx_data *window, t_canvas canvas_pip, uint32_t color_scheme[]);
 mlx_image_t	*init_pip_fractal(mlx_t *mlx, t_canvas canvas_pip, uint32_t color_scheme[]);

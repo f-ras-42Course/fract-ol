@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 19:35:09 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 23:07:21 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,15 @@ void 	mouse_hooks(mouse_key_t button, action_t action, \
 			show_julia_coordinates(data, data->canvas.julia);
 		if (button == MLX_MOUSE_BUTTON_LEFT \
 			&& data->canvas.fractal_type == MANDELBROT)
+		{
+			temp_hide_menu_for_pip(data->window.menu, true);
 			init_julia_in_pip(data, action);
+		}
 	}
 	if (action == MLX_RELEASE)
+	{
+		temp_hide_menu_for_pip(data->window.menu, false);
 		mlx_delete_image(data->window.mlx, data->window.fractal_pip);
+	}
 }
 
