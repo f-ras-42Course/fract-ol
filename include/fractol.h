@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 23:07:44 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 23:37:50 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,40 +114,29 @@ bool		init_image(t_mlx_data *window, t_canvas canvas, \
 			uint32_t color_scheme[]);
 void		put_pixels(mlx_image_t *fractal, int pixel_pos[], \
 			int in_set_check, uint32_t color_scheme[]);
-
-// Fractals
-
 mlx_image_t	*init_fractal(mlx_t *mlx, t_canvas canvas, uint32_t color_scheme[]);
 mlx_image_t	*draw_fractal(mlx_image_t *fractal, t_canvas canvas, \
 			uint32_t color_scheme[]);
 
-// Types
+// Fractals
 
+void		init_canvas(t_canvas *canvas);
 int			calculate_fractal(double canvas_x, \
 			double canvas_y, t_canvas canvas);
 int			mandelbrot_calc(double x_constant, double y_constant);
 int			julia_calc(double x, double y, float julia[]);
-
-void		init_canvas(t_canvas *canvas);
 
 // Hooks
 
 bool		load_hooks(t_all *data);
 void		loop_hooks(void *param);
 void		key_hooks(mlx_key_data_t keydata, void *param);
-void 		mouse_hooks(mouse_key_t button, action_t action, \
-			modifier_key_t mods, void* param);
-void		julia_coordinates_from_mouse(mlx_t *mlx, t_canvas *canvas);
+void		mouse_hooks(mouse_key_t button, action_t action, \
+						modifier_key_t mods, void *param);
 void		scroll_hooks(double xdelta, double ydelta, void *param);
-void		show_fps(bool key_press);
-void		good_bye_x(void *param);
-
 void		image_move_keys(mlx_key_data_t keydata, t_canvas *canvas);
 void		image_zoom_keys(mlx_key_data_t keydata, t_canvas *cvs);
 void		image_zoom_mouse(double ydelta, mlx_t *mlx, t_canvas *cvs);
-void		key_presses(mlx_key_data_t keydata, t_all *data);
-
-void		show_canvas_data(t_canvas canvas);
 
 // Info
 
@@ -155,6 +144,9 @@ void		show_menu(mlx_t *mlx, mlx_image_t *menu[]);
 void		toggle_menu(mlx_image_t	*menu[]);
 char		*get(t_menu_lines instruction);
 char		*get2(t_menu_lines instruction);
+void		show_canvas_data(t_canvas canvas);
+void		good_bye_x(void *param);
+void		show_fps(bool key_press);
 
 // Mandelbrot and Julia interconnection
 
@@ -162,8 +154,22 @@ void		switch_to_julia(t_all *data, float julia[]);
 void		switch_to_mandelbrot(t_all *data);
 void		show_julia_coordinates(t_all *data, float julia[]);
 void		toggle_fractal_type(t_all *data);
+void		julia_coordinates_from_mouse(mlx_t *mlx, t_canvas *canvas);
+void		init_julia_in_pip(t_all *data, action_t action);
+void		refresh_julia_in_pip(t_all *data);
+void		temp_hide_menu_for_pip(mlx_image_t *menu[], \
+							bool activate_julia_pip);
+bool		init_pip(t_mlx_data *window, t_canvas canvas_pip, \
+							uint32_t color_scheme[]);
+mlx_image_t	*init_pip_fractal(mlx_t *mlx, t_canvas canvas_pip, \
+							uint32_t color_scheme[]);
+mlx_image_t	*draw_pip_fractal(mlx_image_t *fractal_pip, \
+							t_canvas canvas_pip, uint32_t color_scheme[]);
+void		put_pixels_pip(mlx_image_t *fractal, int pixel_pos[], \
+							int in_set_check, uint32_t color_scheme[]);
+void		init_canvas_pip(t_canvas *canvas_pip);
 
-// Color
+// Color and dynamic color modes (psychedelic)
 
 int			rgba2color(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
 void		init_color_scheme(uint32_t start_color, uint8_t rgb_increment, \
@@ -174,27 +180,4 @@ void		toggle_ultimate_psycmode(uint32_t color_scheme[], \
 void		init_color_options(uint32_t color_options[]);
 void		other_color(uint32_t color_scheme[], uint32_t color_options[]);
 
-
-
-
-// Julia PIP
-
-
-void	switch_to_julia(t_all *data, float julia[]);
-void	switch_to_mandelbrot(t_all *data);
-void	show_julia_coordinates(t_all *data, float julia[]);
-void	init_julia_in_pip(t_all *data, action_t action);
-void	refresh_julia_in_pip(t_all *data);
-void	julia_coordinates_from_mouse(mlx_t *mlx, t_canvas *canvas);
-void	temp_hide_menu_for_pip(mlx_image_t *menu[], bool activate_julia_pip);
-
-bool	init_pip(t_mlx_data *window, t_canvas canvas_pip, uint32_t color_scheme[]);
-mlx_image_t	*init_pip_fractal(mlx_t *mlx, t_canvas canvas_pip, uint32_t color_scheme[]);
-mlx_image_t	*draw_pip_fractal(mlx_image_t *fractal_pip, \
-			t_canvas canvas_pip, uint32_t color_scheme[]);
-void	put_pixels_pip(mlx_image_t *fractal, \
-		int pixel_pos[], int in_set_check, uint32_t color_scheme[]);
-
-void	init_canvas_pip(t_canvas *canvas_pip);
-		
 #endif
