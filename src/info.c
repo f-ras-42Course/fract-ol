@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:54 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 02:32:06 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 14:54:20 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,6 @@ void	show_canvas_data(t_canvas canvas)
 	canvas.x_increments, canvas.y_decrements);
 }
 
-void	toggle_menu(mlx_image_t	**menu)
-{
-	int	i;
-
-	i = 0;
-	while (i < MENU_LINES)
-	{
-		if (menu[i]->enabled == true)
-			menu[i]->enabled = false;
-		else
-			menu[i]->enabled = true;
-		i++;
-	}
-}
-
 void	show_menu(mlx_t *mlx, mlx_image_t *menu[])
 {
 	int	x;
@@ -78,21 +63,46 @@ void	show_menu(mlx_t *mlx, mlx_image_t *menu[])
 	x = 20;
 	y = 0;
 	item = 0;
-	menu[item++] = \
-	mlx_put_string(mlx, "WASD or arrows: Move up/left/down/right", x, y += 20);
-	menu[item++] = \
-		mlx_put_string(mlx, "-/+ or scroll-wheel: Zoom in/out", x, y += 20);
-	menu[item++] = mlx_put_string(mlx, "R: Reset to start", x, y += 20);
-	menu[item++] = mlx_put_string(mlx, "C: Print canvas values", x, y += 20);
-	menu[item++] = mlx_put_string(mlx, "F: Show/hide FPS", x, y += 20);
-	menu[item++] = mlx_put_string(mlx, "M: Show/hide menu", x, y += 20);
-	menu[item++] = mlx_put_string(mlx, "O: Other color", x, y += 20);
-	menu[item++] = \
-	mlx_put_string(mlx, "P: Toggle psychedelic mode", x, y += 20);
-	menu[item++] = \
-	mlx_put_string(mlx, "U: Toggle ULTIMATE psychedelic mode", x, y += 20);
-	mlx_put_string(mlx, "Left mouse: Get Julia coordinates", x, y += 20);
-	mlx_put_string(mlx, "CTRL + left mouse: Move to Julia-", x, y += 20);
-	mlx_put_string(mlx, "coordinates or back to mandelbrot", x, y += 20);
+	menu[item++] = mlx_put_string(mlx, get(wasd_arrow_navigate), x, y += 20);
+	menu[item++] = mlx_put_string(mlx, get(plus_min_zoom), x, y += 20);
+	menu[item++] = mlx_put_string(mlx, get(r_restart), x, y += 20);
+	menu[item++] = mlx_put_string(mlx, get(c_canvas), x, y += 20);
+	menu[item++] = mlx_put_string(mlx, get(f_fps), x, y += 20);
+	menu[item++] = mlx_put_string(mlx, get(m_menu), x, y += 20);
+	menu[item++] = mlx_put_string(mlx, get(o_other_color), x, y += 20);
+	menu[item++] = mlx_put_string(mlx, get(p_psychedelic), x, y += 20);
+	menu[item++] = mlx_put_string(mlx, get(u_ultimate_psychedelic), x, y += 20);
+	menu[item++] = mlx_put_string(mlx, get(julia_coordinates), x, y += 20);
+	menu[item++] = mlx_put_string(mlx, get(julia_move1), x, y += 20);
+	menu[item++] = mlx_put_string(mlx, get(julia_move2), x, y += 20);
 	menu[item++] = mlx_put_string(mlx, "Q or ESC: Exit program", x, y += 20);
+}
+
+char	*get(t_menu_lines instruction)
+{
+	if (instruction == wasd_arrow_navigate)
+		return ("WASD or arrows: Move up/left/down/right");
+	if (instruction == plus_min_zoom)
+		return ("-/+ or scroll-wheel: Zoom in/out");
+	if (instruction == r_restart)
+		return ("R: Reset to start");
+	if (instruction == c_canvas)
+		return ("C: Print canvas values");
+	if (instruction == f_fps)
+		return ("F: Show/hide FPS");
+	if (instruction == m_menu)
+		return ("M: Show/hide menu");
+	if (instruction == o_other_color)
+	 	return ("O: Other color");
+	if (instruction == p_psychedelic)
+		return ("P: Toggle psychedelic mode");
+	if (instruction == u_ultimate_psychedelic)
+		return ("U: Toggle ULTIMATE psychedelic mode");
+	if (instruction == julia_coordinates)
+		return ("Left mouse: Get Julia coordinates");
+	if (instruction == julia_move1)
+		return ("CTRL + left mouse: Move to Julia-");
+	if (instruction == julia_move2)
+		return ("coordinates or back to mandelbrot");
+	return (NULL);
 }

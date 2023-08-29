@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   psychedelic.c                                      :+:    :+:            */
+/*   toggle.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 21:37:27 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/28 21:56:46 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 14:53:23 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,19 @@ void	toggle_ultimate_psycmode(uint32_t color_scheme[], \
 		toggle_psycmode(color_scheme);
 	if (toggle_psycmode_check >= 20)
 		toggle_psycmode(color_scheme);
+}
+
+void	toggle_menu(mlx_image_t	*menu[])
+{
+	int	i;
+
+	i = 0;
+	while (i < MENU_LINES)
+	{
+		if (menu[i]->enabled == true)
+			menu[i]->enabled = false;
+		else
+			menu[i]->enabled = true;
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 02:32:28 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 14:51:16 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,30 @@ typedef struct s_canvas
 	float	julia[2];
 }	t_canvas;
 
-typedef struct t_all
+typedef struct s_all
 {
 	t_mlx_data		window;
 	t_canvas		canvas;
 	uint32_t		color_scheme[MAX_ITERATION + 3];
 	uint32_t		color_options[COLORX];
 }	t_all;
+
+typedef enum e_menu_lines
+{
+	wasd_arrow_navigate,
+	plus_min_zoom,
+	r_restart,
+	c_canvas,
+	f_fps,
+	m_menu,
+	o_other_color,
+	p_psychedelic,
+	u_ultimate_psychedelic,
+	julia_coordinates,
+	julia_move1,
+	julia_move2,
+	q_esp_exit
+}	t_menu_lines;
 
 // Args
 
@@ -128,8 +145,11 @@ void		key_presses(mlx_key_data_t keydata, t_all *data);
 
 void		show_canvas_data(t_canvas canvas);
 
+// Info
+
 void		show_menu(mlx_t *mlx, mlx_image_t *menu[]);
-void		toggle_menu(mlx_image_t	**menu);
+void		toggle_menu(mlx_image_t	*menu[]);
+char		*get(t_menu_lines instruction);
 
 // Color
 
