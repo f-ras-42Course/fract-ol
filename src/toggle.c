@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 21:37:27 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 14:53:23 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 19:35:32 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,12 @@ void	toggle_menu(mlx_image_t	*menu[])
 			menu[i]->enabled = true;
 		i++;
 	}
+}
+
+void	toggle_fractal_type(t_all *data)
+{
+	if (data->canvas.fractal_type == MANDELBROT)
+		switch_to_julia(data, data->canvas.julia);
+	else if (data->canvas.fractal_type == JULIA)
+		switch_to_mandelbrot(data);
 }

@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 23:08:57 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 02:20:52 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 19:00:17 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ bool	julia_decimals_correct(const char *str1, const char *str2)
 
 bool	julia_decimals_checker(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '-')

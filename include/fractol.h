@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 18:29:50 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 19:35:27 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,9 +157,10 @@ char		*get(t_menu_lines instruction);
 
 // Mandelbrot and Julia interconnection
 
-void	switch_to_julia(t_all *data, float julia[]);
-void	switch_to_mandelbrot(t_all *data);
-void	show_julia_coordinates(t_all *data, float julia[]);
+void		switch_to_julia(t_all *data, float julia[]);
+void		switch_to_mandelbrot(t_all *data);
+void		show_julia_coordinates(t_all *data, float julia[]);
+void		toggle_fractal_type(t_all *data);
 
 // Color
 
@@ -175,13 +176,14 @@ void		other_color(uint32_t color_scheme[], uint32_t color_options[]);
 
 
 
-// FODSK
+// Julia PIP
 
 
 void	switch_to_julia(t_all *data, float julia[]);
 void	switch_to_mandelbrot(t_all *data);
 void	show_julia_coordinates(t_all *data, float julia[]);
-void	display_julia_in_pip(t_all *data, action_t action);
+void	init_julia_in_pip(t_all *data, action_t action);
+void	refresh_julia_in_pip(t_all *data);
 void	julia_coordinates_from_mouse(mlx_t *mlx, t_canvas *canvas);
 
 bool	init_pip(t_mlx_data *window, t_canvas canvas_pip, uint32_t color_scheme[]);

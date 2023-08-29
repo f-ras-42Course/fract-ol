@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:54 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 16:54:38 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 19:31:35 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,11 @@ char	*get(t_menu_lines instruction)
 	if (instruction == julia_move2)
 		return ("coordinates or back to mandelbrot");
 	return (NULL);
+}
+
+void	show_julia_coordinates(t_all *data, float julia[])
+{
+	julia_coordinates_from_mouse(data->window.mlx, &data->canvas);
+	printf("Julia coordinates are: %f, %f\n", julia[X], julia[Y]);
+
 }
