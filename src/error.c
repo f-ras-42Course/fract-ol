@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:21:53 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 02:35:59 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 02:37:48 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	invalid_args(void)
 	ft_putstr_fd("The first argument after julia is the 'x' value and " \
 				"the second is the 'y' value. ", STDERR_FILENO);
 	ft_putstr_fd("Please note that it is not allowed to use more than " \
-				"6 decimals and no less than 1 decimal. ", STDERR_FILENO);
-	ft_putstr_fd("The value cannot be higher or lower than 10 or -10.\n\n"\
+				"7 decimals and no less than 1 decimal. ", STDERR_FILENO);
+	ft_putstr_fd("The value cannot be higher or lower than 9.99 or -9.99.\n\n"\
 				, STDERR_FILENO);
 }
 
@@ -53,7 +53,7 @@ void	invalid_julia(void)
 	ft_putstr_fd("The first argument after julia is the 'x' value and " \
 				"the second is the 'y' value. ", STDERR_FILENO);
 	ft_putstr_fd("Please note that it is not allowed to use more than " \
-				"6 decimals and no less than 1 decimal. ", STDERR_FILENO);
-	ft_putstr_fd("The value cannot be higher or lower than 10 or -10.\n\n"\
+				"7 decimals and no less than 1 decimal. ", STDERR_FILENO);
+	ft_putstr_fd("The value cannot be higher or lower than 9.99 or -9.99.\n\n"\
 				, STDERR_FILENO);
 }
