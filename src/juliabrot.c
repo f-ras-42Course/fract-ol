@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/29 15:11:43 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 18:43:56 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 18:58:39 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@ void	switch_to_julia(t_all *data, float julia[])
 {
 	julia_coordinates_from_mouse(data->window.mlx, &data->canvas);
 	printf("Moved to Julia: %f, %f\n", julia[X], julia[Y]);
+	data->canvas.x_coordinate_zero = data->canvas.x_coordinate_zero = -1.5;
 	mlx_delete_image(data->window.mlx, data->window.fractal_pip);
 	data->canvas.fractal_type = JULIA;
 }
 
 void	switch_to_mandelbrot(t_all *data)
 {	
-	init_canvas(&data->canvas);
 	data->canvas.fractal_type = MANDELBROT;
+	init_canvas(&data->canvas);
 	printf("Changed to Mandelbrot.\n");
 
 }

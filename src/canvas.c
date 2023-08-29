@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:56:16 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 18:15:46 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/29 18:55:21 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 void	init_canvas(t_canvas *canvas)
 {
-	canvas->x_coordinate_zero = -2;
+	if (canvas->fractal_type == JULIA)
+		canvas->x_coordinate_zero = -1.5;
+	else
+		canvas->x_coordinate_zero = -2;
 	canvas->y_coordinate_zero = 1.12;
 	canvas->x_size = 3;
 	canvas->y_size = 2.24;
