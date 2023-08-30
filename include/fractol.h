@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/30 11:26:15 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/30 16:21:13 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,9 @@ typedef enum e_menu_lines
 int			init_args(int argc, char *argv[], float julia[]);
 bool		julia_decimals_correct(const char *str1, const char *str2);
 bool		julia_decimals_checker(const char *str);
+
+// Errors
+void		unexpected_crash(mlx_t *mlx);
 void		invalid_julia(void);
 void		invalid_args(void);
 

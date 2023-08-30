@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 17:15:16 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/28 23:45:51 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/30 16:21:34 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "fractol.h"
 
-void	unexpected_crash(mlx_t *mlx);
 void	ft_putstr_fd(char *s, int fd);
 size_t	ft_strlen(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
