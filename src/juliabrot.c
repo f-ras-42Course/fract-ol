@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/29 15:11:43 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 23:57:58 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/30 12:06:50 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	switch_to_julia(t_all *data, float julia[])
 }
 
 void	switch_to_mandelbrot(t_all *data)
-{	
+{
 	data->canvas.fractal_type = MANDELBROT;
 	init_canvas(&data->canvas);
 	printf("Moved to Mandelbrot.\n");

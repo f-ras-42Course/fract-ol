@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/26 14:37:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/30 11:40:48 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/30 12:06:37 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,3 @@ int	ferry_calc(double x_constant, double y_constant)
 	}
 	return (i);
 }
-
