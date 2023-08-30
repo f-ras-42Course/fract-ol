@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:21:53 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 02:37:48 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/30 11:15:48 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	invalid_args(void)
 	ft_putstr_fd("Please make sure you run the correct command:\n\n", \
 				STDERR_FILENO);
 	ft_putstr_fd("For Mandelbrot run:	./fractol mandelbrot\n", STDERR_FILENO);
-	ft_putstr_fd("For Burningman run:	./fractol burningman\n", STDERR_FILENO);
+	ft_putstr_fd("For Burningship run:	./fractol burningship\n", STDERR_FILENO);
 	ft_putstr_fd("For Julia run:	 	./fractol julia [x-value] [y-value]\n\n", \
 				STDERR_FILENO);
-	ft_putstr_fd("Mandelbrot & Burningman has no other arguments,\n", \
+	ft_putstr_fd("Mandelbrot & Burningship has no other arguments,\n", \
 				STDERR_FILENO);
 	ft_putstr_fd("\nExample for Julia:	./fractol \"julia\" \"0.3\" \"0.6\"\n", \
 				STDERR_FILENO);

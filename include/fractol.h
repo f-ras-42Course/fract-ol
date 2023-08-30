@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 23:54:37 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/30 11:26:15 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define MANDELBROT			0
 # define JULIA				1
 # define BURNINGSHIP		2
+# define FERRY				3
 
 # define COLORX				5
 # define COLOR0				0x541010ff
@@ -72,6 +73,7 @@ typedef struct s_canvas
 	double	plus_zoom;
 	double	minus_zoom;
 	float	julia[2];
+	bool	pip_mode;
 }	t_canvas;
 
 typedef struct s_all
@@ -125,6 +127,8 @@ int			calculate_fractal(double canvas_x, \
 			double canvas_y, t_canvas canvas);
 int			mandelbrot_calc(double x_constant, double y_constant);
 int			julia_calc(double x, double y, float julia[]);
+int			burningship_calc(double x_constant, double y_constant);
+int			ferry_calc(double x_constant, double y_constant);
 
 // Hooks
 

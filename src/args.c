@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 23:08:57 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 19:00:17 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/30 11:26:35 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	init_args(int argc, char *argv[], float julia[])
 			return (invalid_julia(), -1);
 		if (!ft_strncmp(argv[1], "burningship", 12))
 			return (BURNINGSHIP);
+		if (!ft_strncmp(argv[1], "ferry", 12))
+			return (FERRY);
 	}
 	if (argc == 4 && !ft_strncmp(argv[1], "julia", 6))
 	{
