@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/14 13:28:13 by fras          #+#    #+#                  #
-#    Updated: 2023/08/30 21:38:40 by fras          ########   odam.nl          #
+#    Updated: 2023/08/30 21:42:39 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,8 @@ $(NAME): $(MLX42) $(OBJECTS)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(MAKE) directories
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $^
+
+bonus: all
 
 # Libraries
 $(MLX42):
