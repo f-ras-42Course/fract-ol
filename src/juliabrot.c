@@ -6,13 +6,13 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/29 15:11:43 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/30 12:06:50 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/30 19:35:01 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	switch_to_julia(t_all *data, float julia[])
+void	switch_to_julia(t_all *data, double julia[])
 {
 	julia_coordinates_from_mouse(data->window.mlx, &data->canvas);
 	printf("Moved to Julia: %f, %f\n", julia[X], julia[Y]);

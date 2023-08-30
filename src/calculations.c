@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/26 14:37:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/30 12:06:37 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/30 19:33:28 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	mandelbrot_calc(double x_constant, double y_constant)
 	return (i);
 }
 
-int	julia_calc(double x, double y, float julia[])
+int	julia_calc(double x, double y, double julia[])
 {
 	double	xtemp;
 	int		i;

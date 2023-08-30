@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/17 14:23:48 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/30 16:21:13 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/30 19:34:49 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ typedef struct s_canvas
 	double	y_decrements;
 	double	plus_zoom;
 	double	minus_zoom;
-	float	julia[2];
+	double	julia[2];
 	bool	pip_mode;
 }	t_canvas;
 
@@ -104,7 +104,7 @@ typedef enum e_menu_lines
 
 // Args
 
-int			init_args(int argc, char *argv[], float julia[]);
+int			init_args(int argc, char *argv[], double julia[]);
 bool		julia_decimals_correct(const char *str1, const char *str2);
 bool		julia_decimals_checker(const char *str);
 
@@ -129,7 +129,7 @@ void		init_canvas(t_canvas *canvas);
 int			calculate_fractal(double canvas_x, \
 			double canvas_y, t_canvas canvas);
 int			mandelbrot_calc(double x_constant, double y_constant);
-int			julia_calc(double x, double y, float julia[]);
+int			julia_calc(double x, double y, double julia[]);
 int			burningship_calc(double x_constant, double y_constant);
 int			ferry_calc(double x_constant, double y_constant);
 
@@ -157,9 +157,9 @@ void		show_fps(bool key_press);
 
 // Mandelbrot and Julia interconnection
 
-void		switch_to_julia(t_all *data, float julia[]);
+void		switch_to_julia(t_all *data, double julia[]);
 void		switch_to_mandelbrot(t_all *data);
-void		show_julia_coordinates(t_all *data, float julia[]);
+void		show_julia_coordinates(t_all *data, double julia[]);
 void		toggle_fractal_type(t_all *data);
 void		julia_coordinates_from_mouse(mlx_t *mlx, t_canvas *canvas);
 void		init_julia_in_pip(t_all *data, action_t action);

@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:54 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/29 23:55:52 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/30 19:35:09 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	show_canvas_data(t_canvas canvas)
 	canvas.x_increments, canvas.y_decrements);
 }
 
-void	show_julia_coordinates(t_all *data, float julia[])
+void	show_julia_coordinates(t_all *data, double julia[])
 {
 	julia_coordinates_from_mouse(data->window.mlx, &data->canvas);
 	printf("Julia coordinates are: %f, %f\n", julia[X], julia[Y]);

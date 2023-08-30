@@ -6,13 +6,13 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 23:08:57 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/30 11:26:35 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/30 19:34:27 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	init_args(int argc, char *argv[], float julia[])
+int	init_args(int argc, char *argv[], double julia[])
 {
 	if (argc == 2)
 	{
