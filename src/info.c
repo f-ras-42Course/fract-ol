@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:54 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/30 21:00:54 by fras          ########   odam.nl         */
+/*   Updated: 2023/08/30 21:35:31 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	show_fps(bool key_press)
 	if (mlx_get_time() > second)
 	{
 		if (fps_on)
-			printf("%d FPS\n", frames);
+			fractal_float_int_printer(STDOUT_FILENO, "%d FPS\n", frames);
 		second++;
 		frames = 0;
 	}
@@ -72,5 +72,6 @@ void	show_canvas_data(t_canvas canvas)
 void	show_julia_coordinates(t_all *data, double julia[])
 {
 	julia_coordinates_from_mouse(data->window.mlx, &data->canvas);
-	printf("Julia coordinates are: %f, %f\n", julia[X], julia[Y]);
+	fractal_float_int_printer(STDOUT_FILENO, "Julia coordinates are: %f, %f\n", \
+		julia[X], julia[Y]);
 }
