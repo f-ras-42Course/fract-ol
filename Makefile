@@ -6,10 +6,9 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/14 13:28:13 by fras          #+#    #+#                  #
-#    Updated: 2023/08/29 13:41:16 by fras          ########   odam.nl          #
+#    Updated: 2023/08/30 21:38:40 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME = fractol
 CC = gcc
