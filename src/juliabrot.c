@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/29 15:11:43 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/30 21:35:09 by fras          ########   odam.nl         */
+/*   Updated: 2023/09/02 12:39:14 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	switch_to_julia(t_all *data, double julia[])
 		julia[X], julia[Y]);
 	data->canvas.x_coordinate_zero = -1.5;
 	mlx_delete_image(data->window.mlx, data->window.fractal_pip);
+	data->window.fractal_pip = NULL;
 	data->canvas.fractal_type = JULIA;
 }
 

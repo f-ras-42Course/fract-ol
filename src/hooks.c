@@ -6,7 +6,7 @@
 /*   By: fras <fras@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/26 17:57:06 by fras          #+#    #+#                 */
-/*   Updated: 2023/08/30 11:03:10 by fras          ########   odam.nl         */
+/*   Updated: 2023/09/02 12:37:53 by fras          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	loop_hooks(void *param)
 		other_color(data->color_scheme, data->color_options);
 	draw_fractal(data->window.fractal, data->canvas, data->color_scheme);
 	if (mlx_is_mouse_down(data->window.mlx, MLX_MOUSE_BUTTON_LEFT) \
-		&& data->canvas.fractal_type == MANDELBROT)
+		&& data->canvas.fractal_type == MANDELBROT \
+		&& data->window.fractal_pip)
 		refresh_julia_in_pip(data);
 	show_fps(0);
 }
@@ -102,5 +103,6 @@ void	mouse_hooks(mouse_key_t button, action_t action, \
 	{
 		temp_hide_menu_for_pip(data->window.menu, false);
 		mlx_delete_image(data->window.mlx, data->window.fractal_pip);
+		data->window.fractal_pip = NULL;
 	}
 }
