@@ -13,7 +13,7 @@
 NAME = fractol
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
-MLX42_FLAGS = -framework Cocoa -framework OpenGL -framework IOKit -lglfw3
+MLX42_FLAGS = -framework Cocoa -framework OpenGL -framework IOKit -lglfw
 INCLUDE = -I include -I $(MLX42_DIR)/include
 SRC_DIR = src
 OBJ_DIR = obj
