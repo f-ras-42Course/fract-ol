@@ -6,7 +6,7 @@
 #    By: fras <fras@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/14 13:28:13 by fras          #+#    #+#                  #
-#    Updated: 2024/05/28 11:58:44 by fras          ########   odam.nl          #
+#    Updated: 2024/09/09 22:39:52 by fras          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ LIB_DIR = lib
 MLX42 = $(LIB_DIR)/libmlx42.a
 MLX42_DIR = $(LIB_DIR)/MLX42
 MLX42_BUILD = $(MLX42_DIR)/build
+MLX42_CMAKE = $(MLX42_DIR)/CMakeLists.txt
 
 ifdef DEBUG
 CFLAGS += -g -D DEBUG=-1
@@ -45,7 +46,7 @@ endif
 
 all: $(NAME)
 
-$(NAME): $(MLX42) $(OBJECTS)
+$(NAME): $(MLX42_CMAKE) $(MLX42) $(OBJECTS)
 	$(CC) $(CFLAGS) $(MLX42_FLAGS) $(INCLUDE) -o $@ $(OBJECTS) $(MLX42)
 	@$(MAKE) message EXECUTABLE=$@
 
@@ -56,6 +57,9 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 bonus: all
 
 # Libraries
+$(MLX42_CMAKE):
+	$(MAKE) init_subm
+
 $(MLX42):
 	cmake -S $(MLX42_DIR) -B $(MLX42_BUILD) $(MLX42_DEBUG)
 	make -C $(MLX42_BUILD) -j4
